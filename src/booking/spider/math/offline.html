@@ -1,0 +1,1314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Booking on Line | Dipartimento di Matematica</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="files/garland_favicon.ico" type="image/x-icon" />
+    <style type="text/css" media="all">@import "modules/node/node.css";</style>
+    <style type="text/css" media="all">@import "modules/system/defaults.css";</style>
+    <style type="text/css" media="all">@import "modules/system/system.css";</style>
+    <style type="text/css" media="all">@import "modules/user/user.css";</style>
+    <style type="text/css" media="all">@import "themes/garland2/style.css";</style>
+    <style type="text/css" media="print">@import "themes/garland/print.css";</style>
+    <!--[if lt IE 7]>
+    <style type="text/css" media="all">@import "themes/garland/fix-ie.css";</style>
+    <![endif]-->
+
+    <style type="text/css">
+        a.occupmese:link { color: #ff0000 }
+        a.occupmese:visited { color: #ff0000 }
+        a.occupmese:active { color: #ff0000 }
+        a.occupmese:hover { color: #339900 }
+
+        a.occupgiorno:link { color: #000000 }
+        a.occupgiorno:visited { color: #000000 }
+        a.occupgiorno:active { color: #ffff00 }
+        a.occupgiorno:hover { color: #ffff00 }
+
+        a.occupgiornotmp:link { color: #999999 }
+        a.occupgiornotmp:visited { color: #999999 }
+        a.occupgiornotmp:active { color: #ff0000 }
+        a.occupgiornotmp:hover { color: #ff0000 }
+
+        table.calendar { border: 0; margin-top: -1em; }
+        td.calendar { text-align: center; border: 0; }
+        td.calendar-today { text-align: center; border: 0; font-weight: bold; text-decoration: underline; }
+        form.calendar { margin-top: -1.5em; }
+        table.merging { padding: 0; border: 0; width: 50em; }
+        td.merging { padding: 3px; margin: 3px; }
+        td.title-timeline { padding: 0; border: 0; text-align: center; font-weight: bold; }
+        td.timeline { padding: 0; border-right: 1px solid #bdedff; background-color: #cccccc; text-align: left; }
+        select.general { color: #ffffff; background-color: #1b89be; }
+        input.general { color: #ffffff; background-color: #1b89be; font-weight: bold;}
+        input.insert { color: #ffffff; background-color: #00cc00; font-weight: bold;}
+        input.edit { color: #ffffff; background-color: #ff9900; font-weight: bold;}
+        input.delete { color: #ffffff; background-color: #ff0000; font-weight: bold;}
+        input.none { color: #ffffff; background-color: #999999; font-weight: bold;}
+        .ok { color: #339966; }
+        .ko { color: #ff0000; }
+    </style>
+</head>
+
+<body class="sidebar-left">
+<div id="wrapper">
+    <div id="container" class="clear-block">
+        <div id="header">
+            <div id="logo-floater">
+                <h1><a href="http://www.math.unipd.it/" title="Dipartimento di Matematica"><img src="files/garland_logo.png" alt="Dipartimento di Matematica" id="logo" /><span>Dipartimento di Matematica</span></a> <a href="http://db1.math.unipd.it/booking/" title="Booking on Line"><span><font color="#d5b048">&gt; Booking on Line</font></span></a></h1>
+            </div>
+        </div>
+        <div id="sidebar-left" class="sidebar">
+            <div id="block-user-1" class="clear-block block block-user">
+                <table class="calendar">
+                    <tr>
+                        <td><a href="/booking/index.php?month=3&amp;year=2017&amp;date=0000-00-00"><b>&lt;&lt;</b></a></td>
+                        <td align="center" colspan="5"><a href="/booking/index.php?month=4&amp;year=2017&amp;date=0000-00-00"><b>APR 2017</b></a></td>
+                        <td><a href="/booking/index.php?month=5&amp;year=2017&amp;date=0000-00-00"><b>&gt;&gt;</b></a></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar">L</td>
+                        <td class="calendar">M</td>
+                        <td class="calendar">M</td>
+                        <td class="calendar">G</td>
+                        <td class="calendar">V</td>
+                        <td class="calendar">S</td>
+                        <td class="calendar">D</td>
+                    </tr>
+                    <tr>
+                        <td class="calendar">&nbsp;</td>
+                        <td class="calendar">&nbsp;</td>
+                        <td class="calendar">&nbsp;</td>
+                        <td class="calendar">&nbsp;</td>
+                        <td class="calendar">&nbsp;</td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-01&amp;month=4&amp;year=2017">1</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-02&amp;month=4&amp;year=2017">2</a></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-03&amp;month=4&amp;year=2017">3</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-04&amp;month=4&amp;year=2017">4</a></td>
+                        <td class="calendar-today"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-05&amp;month=4&amp;year=2017">5</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-06&amp;month=4&amp;year=2017">6</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-07&amp;month=4&amp;year=2017">7</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-08&amp;month=4&amp;year=2017">8</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-09&amp;month=4&amp;year=2017">9</a></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-10&amp;month=4&amp;year=2017">10</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-11&amp;month=4&amp;year=2017">11</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-12&amp;month=4&amp;year=2017">12</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-13&amp;month=4&amp;year=2017">13</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-14&amp;month=4&amp;year=2017">14</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-15&amp;month=4&amp;year=2017">15</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-16&amp;month=4&amp;year=2017">16</a></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-17&amp;month=4&amp;year=2017">17</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-18&amp;month=4&amp;year=2017">18</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-19&amp;month=4&amp;year=2017">19</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-20&amp;month=4&amp;year=2017">20</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-21&amp;month=4&amp;year=2017">21</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-22&amp;month=4&amp;year=2017">22</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-23&amp;month=4&amp;year=2017">23</a></td>
+                    </tr>
+                    <tr>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-24&amp;month=4&amp;year=2017">24</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-25&amp;month=4&amp;year=2017">25</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-26&amp;month=4&amp;year=2017">26</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-27&amp;month=4&amp;year=2017">27</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-28&amp;month=4&amp;year=2017">28</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-29&amp;month=4&amp;year=2017">29</a></td>
+                        <td class="calendar"><a href="/booking/index.php?id_vistarisorsa=9&amp;date=2017-04-30&amp;month=4&amp;year=2017">30</a></td>
+                    </tr>
+                </table>
+                <div class="content">
+                    <ul class="menu">
+                        <h3>Menu generale</h3>
+                        <li class="collapsed"><a href="?date=2017-04-05&amp;month=4&amp;year=2017&amp;day_view=1">Visualizza per Giorno</a></li>
+                        <li class="collapsed"><a href="?month=4&amp;year=2017&amp;date=0000-00-00&amp;month_view=1">Visualizza per Mese</a></li>
+                        <li class="collapsed"><a href="?interrog=1&insert=1">Interrogazioni</a></li>
+                        <li class="collapsed"><a href="https://db1.math.unipd.it/booking"><span><font color="#ff0000">Area Riservata</font></span></a></li>
+                    </ul>
+                    <ul class="menu">
+                        <h3>Permessi</h3>
+                        <li class="leaf">Solo consultazione</li>
+                    </ul>
+                    <ul class="menu">
+                        <h3>Prenotazioni</h3>
+                        <li class="leaf">Segreteria Didattica<br /><a href="mailto:didattica@math.unipd.it">didattica@math.unipd.it</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
+            <div class="breadcrumb">
+                Booking on Line <em>[public]</em> &gt; Consultazione occupazione risorse
+            </div>
+            <div class="node">
+                <div class="content">
+                    <h2>Mercoled&igrave; 5 Aprile 2017</h2>
+                    <p><a href="?id_vistarisorsa=9&amp;date=2017-04-04&amp;month=4&amp;year=2017">[ <strong>&lt;&lt; precedente</strong> ]</a> <a href="?id_vistarisorsa=9&amp;date=2017-04-05&amp;month=4&amp;year=2017">[ <strong>OGGI</strong> ]</a> <a href="?id_vistarisorsa=9&amp;date=2017-04-06&amp;month=4&amp;year=2017">[ <strong>successivo &gt;&gt;</strong> ]</a></p>
+                    <p><a href="?id_vistarisorsa=1&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;AULE&nbsp;]</a> <a href="?id_vistarisorsa=6&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;LABORATORI&nbsp;]</a> <a href="?id_vistarisorsa=5&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;SALE RIUNIONI&nbsp;]</a> <a href="?id_vistarisorsa=2&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;Torre Archimede&nbsp;]</a> <a href="?id_vistarisorsa=3&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;Paolotti-Luzzati&nbsp;]</a> <a href="?id_vistarisorsa=13&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;* Altre aule di Ateneo&nbsp;]</a> <a href="?id_vistarisorsa=14&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;** Uffici&nbsp;]</a> <strong><a href="?id_vistarisorsa=9&amp;date=2017-04-05&amp;month=4&amp;year=2017">[&nbsp;Tutte&nbsp;]</a></strong> </p>
+                    <p>
+                        * Vengono visualizzate solo le prenotazioni che il Dipartimento di Matematica ha ottenuto presso le altre strutture di Ateneo che gestiscono le aule.
+                    </p><p>
+                    ** Vengono visualizzate solo	  le prenotazioni  relative ad esami.
+                </p><table>
+                    <tr><td></td><td align="left" colspan="28"><h3><strong>RISORSE</strong></h3></td>
+                    <tr><td align="left"><h3><strong>ORE</strong></h3></td>
+                        <td class="title-timeline" style="border: 1px solid black">* A Rostagni</td>
+                        <td class="title-timeline" style="border: 1px solid black">Da definire</td>
+                        <td class="title-timeline" style="border: 1px solid black">* Lu3</td>
+                        <td class="title-timeline" style="border: 1px solid black">* Lu4</td>
+                        <td class="title-timeline" style="border: 1px solid black">* P1</td>
+                        <td class="title-timeline" style="border: 1px solid black">* P2</td>
+                        <td class="title-timeline" style="border: 1px solid black">* P3</td>
+                        <td class="title-timeline" style="border: 1px solid black">* P300</td>
+                        <td class="title-timeline" style="border: 1px solid black">SRIV</td>
+                        <td class="title-timeline" style="border: 1px solid black">SRVII</td>
+                        <td class="title-timeline" style="border: 1px solid black">** Ufficio prof. Baldassarri</td>
+                        <td class="title-timeline" style="border: 1px solid black">** Ufficio prof. D'Agnolo</td>
+                        <td class="title-timeline" style="border: 1px solid black">** Ufficio prof. Lucchini</td>
+                        <td class="title-timeline" style="border: 1px solid black">1A150</td>
+                        <td class="title-timeline" style="border: 1px solid black">1BC50</td>
+                        <td class="title-timeline" style="border: 1px solid black">1BC45</td>
+                        <td class="title-timeline" style="border: 1px solid black">1C150</td>
+                        <td class="title-timeline" style="border: 1px solid black">1AD100</td>
+                        <td class="title-timeline" style="border: 1px solid black">2AB45</td>
+                        <td class="title-timeline" style="border: 1px solid black">2AB40</td>
+                        <td class="title-timeline" style="border: 1px solid black">2BC60</td>
+                        <td class="title-timeline" style="border: 1px solid black">2BC30</td>
+                        <td class="title-timeline" style="border: 1px solid black">LabTA</td>
+                        <td class="title-timeline" style="border: 1px solid black">LabP140</td>
+                        <td class="title-timeline" style="border: 1px solid black">LabP036</td>
+                        <td class="title-timeline" style="border: 1px solid black">P200</td>
+                        <td class="title-timeline" style="border: 1px solid black">LuM250</td>
+                        <td class="title-timeline" style="border: 1px solid black">LuF1</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">08:30<br />09:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141786" title="[1148409] CALCOLO DELLE VARIAZIONI (MONTI ROBERTO)" class="occupgiorno">[1148409] CALCOLO DELLE VARIAZIONI (MONTI ROBERTO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">09:00<br />09:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141786" title="[1148409] CALCOLO DELLE VARIAZIONI (MONTI ROBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">09:30<br />10:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138562" title="[1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)" class="occupgiorno">[1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137954" title="[1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)" class="occupgiorno">[1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento142644" title="[1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)" class="occupgiorno">[1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)</a></td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento142683" title="[1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)" class="occupgiorno">[1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139058" title="[1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)" class="occupgiorno">[1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)</a></td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138877" title="[1118074] ASTRONOMIA (CIROI STEFANO)" class="occupgiorno">[1118074] ASTRONOMIA (CIROI STEFANO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138283" title="[1148283] ANALISI MATEMATICA 1 (TREU GIULIA)" class="occupgiorno">[1148283] ANALISI MATEMATICA 1 (TREU GIULIA)</a></td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno">[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)</a></td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno">[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)</a></td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">10:00<br />10:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142892" title="riunione Manutenzione" class="occupgiorno">riunione Manutenzione</a></td>
+                        <td valign="top" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno">Gruppo di lavoro - prof. Iovita</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138562" title="[1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137954" title="[1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento142644" title="[1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento142683" title="[1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139058" title="[1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138877" title="[1118074] ASTRONOMIA (CIROI STEFANO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138283" title="[1148283] ANALISI MATEMATICA 1 (TREU GIULIA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">10:30<br />11:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142892" title="riunione Manutenzione" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138562" title="[1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137954" title="[1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento142644" title="[1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento142683" title="[1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139058" title="[1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138877" title="[1118074] ASTRONOMIA (CIROI STEFANO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno">Gruppo di lavoro</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138268" title="[1148285] GEOMETRIA 1 (FIOROT LUISA)" class="occupgiorno">[1148285] GEOMETRIA 1 (FIOROT LUISA)</a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">11:00<br />11:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138562" title="[1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137954" title="[1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento142644" title="[1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento142683" title="[1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139058" title="[1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138877" title="[1118074] ASTRONOMIA (CIROI STEFANO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138268" title="[1148285] GEOMETRIA 1 (FIOROT LUISA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137468" title="[1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">11:30<br />12:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138517" title="[1124566] FISICA MATEMATICA (CARDIN FRANCO)" class="occupgiorno">[1124566] FISICA MATEMATICA (CARDIN FRANCO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento141593" title="[1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)" class="occupgiorno">[1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)</a></td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140879" title="[1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)" class="occupgiorno">[1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139328" title="[1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)" class="occupgiorno">[1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141861" title="[1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)" class="occupgiorno">[1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)</a></td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138907" title="[1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)" class="occupgiorno">[1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)</a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento142445" title="[1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)" class="occupgiorno">[1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)</a></td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138425" title="[1148284] FISICA 1 (FERUGLIO FERRUCCIO)" class="occupgiorno">[1148284] FISICA 1 (FERUGLIO FERRUCCIO)</a></td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140834" title="[1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)" class="occupgiorno">[1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">12:00<br />12:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138517" title="[1124566] FISICA MATEMATICA (CARDIN FRANCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento141593" title="[1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140879" title="[1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139328" title="[1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141861" title="[1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138907" title="[1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento142445" title="[1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138425" title="[1148284] FISICA 1 (FERUGLIO FERRUCCIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140834" title="[1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">12:30<br />13:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138517" title="[1124566] FISICA MATEMATICA (CARDIN FRANCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento141593" title="[1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140879" title="[1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139328" title="[1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141861" title="[1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138907" title="[1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento142445" title="[1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138425" title="[1148284] FISICA 1 (FERUGLIO FERRUCCIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140834" title="[1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">13:00<br />13:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142898" title="staff pta" class="occupgiorno">staff pta</a></td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138517" title="[1124566] FISICA MATEMATICA (CARDIN FRANCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento141593" title="[1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140879" title="[1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139328" title="[1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141861" title="[1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138907" title="[1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento142445" title="[1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138425" title="[1148284] FISICA 1 (FERUGLIO FERRUCCIO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento140834" title="[1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">13:30<br />14:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142898" title="staff pta" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137894" title="[1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)" class="occupgiorno">[1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)</a></td>
+                        <td valign="top" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno">[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno">[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)</a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137633" title="[1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)" class="occupgiorno">[1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">14:00<br />14:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142894" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137894" title="[1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137633" title="[1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">14:30<br />15:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno">Gruppo di lavoro - prof. Iovita</a></td>
+                        <td valign="top" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento141521" title="Seminario di Geometria" class="occupgiorno">Seminario di Geometria</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139591" title="Tutorato di ANALISI MATEMATICA 2B" class="occupgiorno">Tutorato di ANALISI MATEMATICA 2B</a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137894" title="[1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139547" title="Tutorato di PROBABILITA' E STATISTICA" class="occupgiorno">Tutorato di PROBABILITA' E STATISTICA</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141726" title="[1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)" class="occupgiorno">[1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139403" title="[1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)" class="occupgiorno">[1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139163" title="[1148406] ANALISI COMPLESSA (POLESELLO PIETRO)" class="occupgiorno">[1148406] ANALISI COMPLESSA (POLESELLO PIETRO)</a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#bebebe" style="border: 3px double #091261"><a href="#evento142897" title="Gruppo di lavoro" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141255" title="Geologia applicata con elementi di legislazione" class="occupgiorno">Geologia applicata con elementi di legislazione</a></td>
+                        <td valign="top" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141299" title="Data Mining" class="occupgiorno">Data Mining</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137633" title="[1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">15:00<br />15:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento141521" title="Seminario di Geometria" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139591" title="Tutorato di ANALISI MATEMATICA 2B" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137894" title="[1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139547" title="Tutorato di PROBABILITA' E STATISTICA" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141726" title="[1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139403" title="[1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139163" title="[1148406] ANALISI COMPLESSA (POLESELLO PIETRO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141255" title="Geologia applicata con elementi di legislazione" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141299" title="Data Mining" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137633" title="[1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">15:30<br />16:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento141521" title="Seminario di Geometria" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139591" title="Tutorato di ANALISI MATEMATICA 2B" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139547" title="Tutorato di PROBABILITA' E STATISTICA" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141726" title="[1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139403" title="[1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139163" title="[1148406] ANALISI COMPLESSA (POLESELLO PIETRO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno">Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)</a></td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141255" title="Geologia applicata con elementi di legislazione" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141299" title="Data Mining" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137588" title="[1134841] PROBABILITA' E STATISTICA (-- --)" class="occupgiorno">[1134841] PROBABILITA' E STATISTICA (-- --)</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">16:00<br />16:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento142808" title="Seminario" class="occupgiorno">Seminario</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139591" title="Tutorato di ANALISI MATEMATICA 2B" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento139547" title="Tutorato di PROBABILITA' E STATISTICA" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141726" title="[1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139403" title="[1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139163" title="[1148406] ANALISI COMPLESSA (POLESELLO PIETRO)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento141801" title="[1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141255" title="Geologia applicata con elementi di legislazione" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#6b8e23" style="border: 3px double #091261"><a href="#evento141299" title="Data Mining" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137588" title="[1134841] PROBABILITA' E STATISTICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">16:30<br />17:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento142808" title="Seminario" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento142803" title="[1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)" class="occupgiorno">[1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)</a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139463" title="[1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)" class="occupgiorno">[1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)</a></td>
+                        <td valign="top" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141878" title="[1148408] ANELLI E MODULI (BAZZONI SILVANA)" class="occupgiorno">[1148408] ANELLI E MODULI (BAZZONI SILVANA)</a></td>
+                        <td valign="top" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138847" title="[1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)" class="occupgiorno">[1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)</a></td>
+                        <td valign="top" align="center" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno">prenotata per Economia - prof.ssa Valentina De Marchi</a></td>
+                        <td valign="top" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno">prenotata per Economia - prof.ssa Valentina De Marchi</a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137588" title="[1134841] PROBABILITA' E STATISTICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">17:00<br />17:30</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#f0e68c" style="border: 3px double #091261"><a href="#evento142808" title="Seminario" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento142803" title="[1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#d02090" style="border: 3px double #091261"><a href="#evento137984" title="[1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139463" title="[1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141878" title="[1148408] ANELLI E MODULI (BAZZONI SILVANA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138847" title="[1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffc0cb" style="border: 3px double #091261"><a href="#evento137588" title="[1134841] PROBABILITA' E STATISTICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">17:30<br />18:00</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento142803" title="[1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139463" title="[1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141878" title="[1148408] ANELLI E MODULI (BAZZONI SILVANA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138847" title="[1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#7fffd4" style="border: 3px double #091261"><a href="#evento142589" title="prenotata per Economia - prof.ssa Valentina De Marchi" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                    <tr><td class="title-timeline" style="border: 1px solid black">18:00<br />in&nbsp;poi</td><td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#d2b48c" style="border: 3px double #091261"><a href="#evento142895" title="Gruppo di lavoro - prof. Iovita" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#ffa500" style="border: 3px double #091261"><a href="#evento142803" title="[1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento139463" title="[1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#4169e1" style="border: 3px double #091261"><a href="#evento141878" title="[1148408] ANELLI E MODULI (BAZZONI SILVANA)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#87ceeb" style="border: 3px double #091261"><a href="#evento138847" title="[1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td valign="top" align="center" bgcolor="#ffff00" style="border: 3px double #091261"><a href="#evento142543" title="Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)" class="occupgiorno"><strong>&quot;</strong></a></td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                        <td align="center" valign="top" style="border: 1px solid #cccccc">&nbsp;</td>
+                    </tr>
+                </table>
+                    <p><em>Cliccare sulle descrizioni contenute nelle celle colorate o sul corrispondente simbolo (<strong>"</strong>) per vedere il dettaglio della prenotazione.</em></p>
+                    <hr>
+                    <h2>Lista dettagliata prenotazioni</h2>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141786"><strong>Orario:</strong> 08:30 - 09:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Monti, Roberto</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC60, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148409] CALCOLO DELLE VARIAZIONI (MONTI ROBERTO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138283"><strong>Orario:</strong> 09:30 - 10:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Mariconda, Carlo</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">P200, Aula corsi, III piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento11"><strong>Tipo evento:</strong> Lezione Matematica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148283] ANALISI MATEMATICA 1 (TREU GIULIA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137468"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Parmeggiani, Gemma</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LuM250, Aula corsi (238 posti), Piano terra - Aule Luzzatti</li>
+                                <li class="leaf">LuF1, Aula corsi (105 posti), Piano terra - Aule Luzzatti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento15"><strong>Tipo evento:</strong> Lezione Informatica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1147730] ALGEBRA E MATEMATICA DISCRETA (PARMEGGIANI GEMMA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137954"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Clabot, Francesco</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1BC45, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento18"><strong>Tipo evento:</strong> Lezione Informatica Magistrale 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1150679] SECURITY AND RISK MANAGEMENT (DI PIETRO ROBERTO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138562"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Cailotto, Maurizio</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1A150, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento12"><strong>Tipo evento:</strong> Lezione Matematica 2 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1124567] GEOMETRIA 2 (CAILOTTO MAURIZIO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138877"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC60, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento13"><strong>Tipo evento:</strong> Lezione Matematica 3 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1118074] ASTRONOMIA (CIROI STEFANO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139058"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Chiarellotto, Bruno</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB40, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148414] GEOMETRIA ALGEBRICA 1 (CHIARELLOTTO BRUNO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142644"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Bardi, Martino</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1AD100, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148411] EQUAZIONI DIFFERENZIALI (BARDI MARTINO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142683"><strong>Orario:</strong> 09:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Marson, Andrea</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB45, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento13"><strong>Tipo evento:</strong> Lezione Matematica 3 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1118073] ANALISI FUNZIONALE 1 (MARSON ANDREA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142892"><strong>Orario:</strong> 10:00 - 11:00</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Clemente, Cinzia</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRIV, Sala riunioni DM, IV piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento52"><strong>Tipo evento:</strong> Riunione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> riunione Manutenzione</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142894"><strong>Orario:</strong> 10:00 - 14:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Iovita, Adrian</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRVII, Sala riunioni, VII piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento52"><strong>Tipo evento:</strong> Riunione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Gruppo di lavoro - prof. Iovita</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138268"><strong>Orario:</strong> 10:30 - 11:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Candilera, Maurizio</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">P200, Aula corsi, III piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento11"><strong>Tipo evento:</strong> Lezione Matematica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148285] GEOMETRIA 1 (FIOROT LUISA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142897"><strong>Orario:</strong> 10:30 - 15:00</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC30, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento1"><strong>Tipo evento:</strong> Altro</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Gruppo di lavoro</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138425"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Feruglio, Ferruccio</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">P200, Aula corsi, III piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento11"><strong>Tipo evento:</strong> Lezione Matematica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148284] FISICA 1 (FERUGLIO FERRUCCIO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138517"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Cardin, Franco</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1A150, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento12"><strong>Tipo evento:</strong> Lezione Matematica 2 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1124566] FISICA MATEMATICA (CARDIN FRANCO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138907"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Conforti, Michelangelo</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC60, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento13"><strong>Tipo evento:</strong> Lezione Matematica 3 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1118087] MATEMATICA DISCRETA (CONFORTI MICHELANGELO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139328"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Grasselli, Martino</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB45, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148428] METODI STOCASTICI PER LA FINANZA (GRASSELLI MARTINO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento140834"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> File', Gilberto</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LuM250, Aula corsi (238 posti), Piano terra - Aule Luzzatti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento15"><strong>Tipo evento:</strong> Lezione Informatica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1147736] PROGRAMMAZIONE (Iniziali cognome A-L) (FILE' GILBERTO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento140879"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Di Pietro, Roberto</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1C150, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento15"><strong>Tipo evento:</strong> Lezione Informatica 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1147737] PROGRAMMAZIONE (Iniziali cognome M-Z) (DI PIETRO ROBERTO - BRESOLIN DAVIDE)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141593"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Vardanega, Tullio</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1BC45, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento18"><strong>Tipo evento:</strong> Lezione Informatica Magistrale 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148760] SISTEMI REAL-TIME (VARDANEGA TULLIO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141861"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Novelli, Carla </li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB40, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148415] GEOMETRIA ALGEBRICA 2 (NOVELLI CARLA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142445"><strong>Orario:</strong> 11:30 - 13:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Lombardi, Michele</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LabP036, Laboratorio DM, II piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento18"><strong>Tipo evento:</strong> Lezione Informatica Magistrale 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148758] SISTEMI CON VINCOLI (LOMBARDI MICHELE)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142898"><strong>Orario:</strong> 13:00 - 14:00</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Clemente, Cinzia</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRIV, Sala riunioni DM, IV piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento52"><strong>Tipo evento:</strong> Riunione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> staff pta</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137633"><strong>Orario:</strong> 13:30 - 15:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Baldan, Paolo</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LuM250, Aula corsi (238 posti), Piano terra - Aule Luzzatti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento16"><strong>Tipo evento:</strong> Lezione Informatica 2 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1134837] ALGORITMI E STRUTTURE DATI (BALDAN PAOLO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137894"><strong>Orario:</strong> 13:30 - 15:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Sambin, Giovanni</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1BC50, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento18"><strong>Tipo evento:</strong> Lezione Informatica Magistrale 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1150717] TEORIA DEI TIPI (SAMBIN GIOVANNI)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141801"><strong>Orario:</strong> 13:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Buratto, Alessandra</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC60, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento13"><strong>Tipo evento:</strong> Lezione Matematica 3 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1118099] MATEMATICA PER L'ECONOMIA (BURATTO ALESSANDRA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137984"><strong>Orario:</strong> 13:30 - 17:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Baldissera, Amir</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1BC45, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento18"><strong>Tipo evento:</strong> Lezione Informatica Magistrale 1 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1134832] GESTIONE DI IMPRESE INFORMATICHE (BALDISSERA AMIR)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141521"><strong>Orario:</strong> 14:30 - 16:00</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Bertapelle, Alessandra</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRVII, Sala riunioni, VII piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento48"><strong>Tipo evento:</strong> Conferenza / Seminario / Convegno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Seminario di Geometria</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139163"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Polesello, Pietro</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB40, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148406] ANALISI COMPLESSA (POLESELLO PIETRO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139403"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Conforti, Michelangelo</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB45, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1150777] OTTIMIZZAZIONE (CONFORTI MICHELANGELO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139547"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1C150, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento39"><strong>Tipo evento:</strong> Esercitazione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Tutorato di PROBABILITA' E STATISTICA</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139591"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1A150, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento39"><strong>Tipo evento:</strong> Esercitazione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Tutorato di ANALISI MATEMATICA 2B</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141255"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Floris, Mario</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LabTA, Laboratorio DM, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento83"><strong>Tipo evento:</strong> Lezione CS Scienze Geologiche</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Geologia applicata con elementi di legislazione</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141299"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Scarpa, Bruno</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LabP140, Laboratorio DM, II piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento27"><strong>Tipo evento:</strong> Lezione CS Scienze statistiche</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Data Mining</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141726"><strong>Orario:</strong> 14:30 - 16:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Fasso', Francesco</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1AD100, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148431] SISTEMI DINAMICI (FASSO' FRANCESCO)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142895"><strong>Orario:</strong> 14:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Iovita, Adrian</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRIV, Sala riunioni DM, IV piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento52"><strong>Tipo evento:</strong> Riunione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Gruppo di lavoro - prof. Iovita</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento137588"><strong>Orario:</strong> 15:30 - 17:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LuM250, Aula corsi (238 posti), Piano terra - Aule Luzzatti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento16"><strong>Tipo evento:</strong> Lezione Informatica 2 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1134841] PROBABILITA' E STATISTICA (-- --)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142543"><strong>Orario:</strong> 15:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Dottorato, Scienze Matematiche</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC30, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento22"><strong>Tipo evento:</strong> Lezione Corso Dottorato Matematica Computazionale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Growth optimality and recent applications to probability (Prof. Constantinos Kardaras)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142808"><strong>Orario:</strong> 16:00 - 17:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Kloosterman, Remke Nanne</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">SRVII, Sala riunioni, VII piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento48"><strong>Tipo evento:</strong> Conferenza / Seminario / Convegno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> Seminario</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142589"><strong>Orario:</strong> 16:30 - 18:00</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">LabP140, Laboratorio DM, II piano - Edificio Paolotti</li>
+                                <li class="leaf">LabP036, Laboratorio DM, II piano - Edificio Paolotti</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento42"><strong>Tipo evento:</strong> Esame Computer</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> prenotata per Economia - prof.ssa Valentina De Marchi</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento138847"><strong>Orario:</strong> 16:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Runggaldier, Wolfgang Johann</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2BC60, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento13"><strong>Tipo evento:</strong> Lezione Matematica 3 anno</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1118097] FINANZA MATEMATICA (RUNGGALDIER WOLFGANG JOHANN)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento139463"><strong>Orario:</strong> 16:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB45, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1152018] COMPLEMENTI DI ANALISI NUMERICA (-- --)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento141878"><strong>Orario:</strong> 16:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> Bazzoni, Silvana</li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">2AB40, Aula corsi, II piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento14"><strong>Tipo evento:</strong> Lezione Matematica Magistrale</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1148408] ANELLI E MODULI (BAZZONI SILVANA)</li>
+                    </ul>
+                    <hr>
+                    <ul class="menu">
+                        <li class="collapsed"><a name="evento142803"><strong>Orario:</strong> 16:30 - 18:30</a></li>
+                        <li class="collapsed"><strong>Persona:</strong> <em>[ da definire ]</em></li>
+                        <li class="expanded"><strong>Risorse:</strong>
+                            <ul class="menu">
+                                <li class="leaf">1BC50, Aula corsi, I piano - Torre Archimede</li>
+                            </ul>
+                        </li>
+                        <li class="collapsed tdtipoevento39"><strong>Tipo evento:</strong> Esercitazione</li>
+                        <li class="collapsed"><strong>Descrizione:</strong> [1152017] ANALISI ARMONICA (SJOGREN STEN OLOF PETER)</li>
+                    </ul>
+                    <hr>
+                </div>
+                <div class="clear-block clear">
+                    <div class="meta"></div>
+                </div>
+            </div>
+            <span class="clear"></span>
+            <div id="footer">Dipartimento di Matematica</div>
+        </div></div></div></div>
+    </div>
+</div>
+</body>
+</html>
