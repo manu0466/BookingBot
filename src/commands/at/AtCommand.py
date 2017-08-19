@@ -9,8 +9,13 @@ import re
 
 class AtCommand(TextHandler):
 
+    """
+    Class that represents the At command.
+    """
+
     def __init__(self, booking: Booking):
         super(AtCommand, self).__init__(booking, ['at'])
+        # Regex to validate the time format
         self._re = re.compile("(^[0-9]{1,2}\.[0-9]{1,2}$)|(^[0-9]{1,2}:[0-9]{1,2}$)|(^[0-9]{1,2}$)")
 
     def execute(self, bot: Bot, update: Update):
@@ -18,8 +23,8 @@ class AtCommand(TextHandler):
         bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
         events_source = self.get_event_source()
         classroom_source = self.get_classroom_source()
+        # Extract the requested time from the message
         requested_time = update.message.text.replace(" ", "")[2:]
-
         match = self._re.search(requested_time)
 
         if match:
@@ -36,7 +41,7 @@ class AtCommand(TextHandler):
             if 24 > hour >= 0 and 60 > minute >= 0:
                 now = datetime.now()
                 time = datetime(year=now.year, month=now.month, day=now.day, hour=hour, minute=minute)
-                text = "*Current time: " + time.strftime("%H:%M") + "*\n"
+                text = "*Requested time: " + time.strftime("%H:%M") + "*\n"
                 for classroom in classroom_source.get_all_classrooms():
                     if events_source.is_classroom_free(classroom.get_identifier(), date_time=time):
                         event = events_source.get_next_event(classroom.get_identifier(), time)

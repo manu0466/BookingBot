@@ -8,7 +8,9 @@ from booking import Booking
 class StartCommand(TextHandler):
     """
     Class that handle the start and the help command.
+    This class show to the user the help message.
     """
+
     # TODO: Implement an administration logic to made the first user that interact with the bot an administrator?
     def __init__(self, booking: Booking):
         super(StartCommand, self).__init__(booking, ['start', 'help'])

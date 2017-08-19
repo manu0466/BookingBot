@@ -9,7 +9,7 @@ class SpiderEventAdapter(Event):
     """
     Adapter class to convert the SpiderEvent object into an Event object.
     This class have the responsibility to convert the objects returned from the spider
-    to the objects that the source manage.
+    to the objects that the EventSource manage.
     """
 
     def __init__(self, spider_event: SpiderEvent):

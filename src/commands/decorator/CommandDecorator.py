@@ -4,6 +4,10 @@ from telegram import Update, Message
 
 class CommandDecorator(HandlerDecorator):
 
+    """
+    Decorator class to create a telegram command handler.
+    """
+
     def check_update(self, update: Update):
         result = False
         if isinstance(update, Update) and (update.message or update.edited_message):

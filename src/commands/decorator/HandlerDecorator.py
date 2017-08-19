@@ -5,9 +5,17 @@ from commands import AbstractBookingHandler
 
 class HandlerDecorator(AbstractBookingHandler):
 
-    def __init__(self, command: AbstractBookingHandler):
-        super(HandlerDecorator, self).__init__(command.backend)
-        self._command = command
+    """
+    Base class to create a decorator for a bot handler.
+    """
+
+    def __init__(self, handler: AbstractBookingHandler):
+        """
+        Default constructor.
+        :param handler: The command that will be decorated.
+        """
+        super(HandlerDecorator, self).__init__(handler.backend)
+        self._command = handler
 
     def check_update(self, update):
         return self._command.check_update(update)

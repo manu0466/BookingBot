@@ -7,7 +7,7 @@ from telegram import Bot, Update
 class AbstractBookingHandler(Handler):
 
     """"
-    Base class that represents a simple command that interact with the EventsService.
+    Base class that represents a simple command that interact with the Booking instance.
     """
 
     def __init__(self, backend: Booking):

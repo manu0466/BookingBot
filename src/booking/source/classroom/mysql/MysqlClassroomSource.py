@@ -26,7 +26,7 @@ class MysqlClassroomSource(ClassroomSource):
     def add_classroom(self, classroom: Classroom):
         build = safe_get_build(classroom)
         try:
-            MysqlClassroom.get(MysqlClassroom.name == classroom.get_name())
+            MysqlClassroom.get(MysqlClassroom.identifier == classroom.get_identifier())
         except MysqlClassroom.DoesNotExist:
             MysqlClassroom.create(build=build, name=classroom.get_name(), floor=classroom.get_floor(),
                                   identifier=classroom.get_identifier())
