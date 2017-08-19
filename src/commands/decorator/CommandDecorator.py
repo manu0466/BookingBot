@@ -17,3 +17,11 @@ class CommandDecorator(HandlerDecorator):
                 message.text = message.text[1:]
                 result = super().check_update(new_update)
         return result
+
+    def handle_update(self, update, dispatcher):
+        new_update = self.copy_update(update)
+        message = new_update.message or new_update.edited_message  # type: Message
+        if message.text.startswith('/'):
+            message.text = message.text[1:]
+        return super().handle_update(new_update, dispatcher)
+

@@ -20,8 +20,8 @@ class HandlerDecorator(AbstractBookingHandler):
     def check_update(self, update):
         return self._command.check_update(update)
 
-    def execute(self, bot: Bot, update: Update):
-        self._command.execute(bot, update)
+    def execute(self, chat_id, bot: Bot, update: Update):
+        self._command.execute(chat_id, bot, update)
 
     def copy_update(self, update: Update) -> Update:
         """

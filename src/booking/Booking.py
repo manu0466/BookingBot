@@ -2,7 +2,7 @@ from .scheduler import Scheduler
 from .source import EventsSource, ClassroomSource
 from .source.event import MysqlEventsSource
 from .source.classroom import MysqlClassroomSource
-from .spider.math import MathSpider
+from .spider.math import MathSpider, OfflineSpider
 
 from .scheduler.settings import ShelveSettingsSource
 

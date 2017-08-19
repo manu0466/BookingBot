@@ -13,11 +13,9 @@ class NowCommand(TextHandler):
     """
 
     def __init__(self, booking: Booking):
-        super(NowCommand, self).__init__(booking, ['now'])
+        super(NowCommand, self).__init__(booking, ['now'], exact_match=True)
 
-    def execute(self, bot: Bot, update: Update):
-        chat_id = update.message.chat_id
-        bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+    def execute(self, chat_id, bot: Bot, update: Update):
         events_source = self.get_event_source()
         classroom_source = self.get_classroom_source()
         time = datetime.now()

@@ -23,6 +23,10 @@ class MysqlClassroomSource(ClassroomSource):
             print("MysqlClassroomSource.get_classroom: No class found with name: %s" % name)
         return query_result_to_classroom(class_room)
 
+    def get_classrooms_in_building(self, identifier: str) -> List[Classroom]:
+        return query_result_to_classrooms(
+            MysqlClassroom.select().join(MysqlBuild).where(MysqlBuild.identifier == identifier).execute())
+
     def add_classroom(self, classroom: Classroom):
         build = safe_get_build(classroom)
         try:
@@ -35,16 +39,20 @@ class MysqlClassroomSource(ClassroomSource):
     def get_all_classrooms(self) -> List[Classroom]:
         return query_result_to_classrooms(MysqlClassroom.select().order_by(MysqlClassroom.name.asc()).execute())
 
+    def get_all_buildings(self) -> List[Building]:
+        return query_result_to_buildings(MysqlBuild.select().order_by(MysqlBuild.name.asc()).execute())
+
 
 def safe_get_build(classroom: Classroom) -> MysqlBuild:
-    build = MysqlBuild.get_or_create(name=classroom.get_building().get_name())[0]  # type: MysqlBuild
+    build = MysqlBuild.get_or_create(name=classroom.get_building().get_name(),
+                                     identifier=classroom.get_building().get_identifier())[0]  # type: MysqlBuild
     return build
 
 
 def query_result_to_classroom(classroom: MysqlClassroom) -> Classroom:
     result = None
     if classroom is not None:
-        building = Building(classroom.build.name)
+        building = Building(classroom.build.identifier, classroom.build.name)
         result = Classroom(name=str(classroom.name),
                            building=building,
                            floor=classroom.floor,
@@ -56,4 +64,18 @@ def query_result_to_classrooms(events: List[MysqlClassroom]) -> List[Classroom]:
     results = []
     for event in events:
         results.append(query_result_to_classroom(event))
+    return results
+
+
+def query_result_to_building(building: MysqlBuild) -> Building:
+    result = None
+    if building is not None:
+        result = Building(building.identifier, building.name)
+    return result
+
+
+def query_result_to_buildings(buildings: List[MysqlBuild]) -> List[Building]:
+    results = []
+    for building in buildings:
+        results.append(query_result_to_building(building))
     return results

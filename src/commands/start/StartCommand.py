@@ -21,8 +21,7 @@ class StartCommand(TextHandler):
                          "from minutes using the colon (:) or dot (.).\n\n"
                          "Ex.Searching for free classrooms at 3pm will result in the command either At 15:00, At 15.00 or At 15")
 
-    def execute(self, bot: Bot, update: Update):
-        message = update.message  # type: Message
-        bot.send_message(message.chat_id,
+    def execute(self, chat_id,  bot: Bot, update: Update):
+        bot.send_message(chat_id,
                          text=self._message,
                          parse_mode=telegram.ParseMode.MARKDOWN)
