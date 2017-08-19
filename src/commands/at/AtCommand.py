@@ -18,9 +18,7 @@ class AtCommand(TextHandler):
         # Regex to validate the time format
         self._re = re.compile("(^[0-9]{1,2}\.[0-9]{1,2}$)|(^[0-9]{1,2}:[0-9]{1,2}$)|(^[0-9]{1,2}$)")
 
-    def execute(self, bot: Bot, update: Update):
-        chat_id = update.message.chat_id
-        bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+    def execute(self, chat_id, bot: Bot, update: Update):
         events_source = self.get_event_source()
         classroom_source = self.get_classroom_source()
         # Extract the requested time from the message

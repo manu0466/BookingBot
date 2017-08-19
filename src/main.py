@@ -7,6 +7,7 @@ from commands.start import StartCommand
 from commands.now import NowCommand
 from commands.at import AtCommand
 from commands.decorator import CommandDecorator
+from commands.events import BuildingHandler, ClassroomHandler, GetBuildingsHandler
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -34,6 +35,11 @@ def main():
     dp.add_handler(CommandDecorator(StartCommand(booking=booking)))
     dp.add_handler(NowCommand(booking=booking))
     dp.add_handler(AtCommand(booking=booking))
+    dp.add_handler(CommandDecorator(BuildingHandler(booking)))
+    classroom_handler = ClassroomHandler(booking)
+    dp.add_handler(CommandDecorator(classroom_handler))
+    dp.add_handler(classroom_handler)
+    dp.add_handler(CommandDecorator(GetBuildingsHandler(booking)))
 
     # log all errors
     dp.add_error_handler(error)

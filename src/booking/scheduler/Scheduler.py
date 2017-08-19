@@ -50,7 +50,8 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
                 # Adds the classrooms inside the classroom source
                 for classroom in buildings_provider.get_classrooms():
                     # Create the Building instance
-                    temp_building = Building(classroom.get_building().get_name())
+                    temp_building = Building(classroom.get_building().get_identifier(),
+                                             classroom.get_building().get_name())
                     # Create the classroom building
                     temp_classroom = Classroom(classroom.get_identifier(), classroom.get_name(),
                                                temp_building, classroom.get_floor())

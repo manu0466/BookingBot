@@ -1,6 +1,6 @@
 from abc import abstractmethod, ABC
 from typing import List
-from .model import Classroom
+from .model import Classroom, Building
 
 
 class ClassroomSource(ABC):
@@ -15,6 +15,15 @@ class ClassroomSource(ABC):
         Gets a classroom.
         :param identifier: Identifier of the classroom.
         :return: Returns the classroom with the provided name if exist None otherwise.
+        """
+        pass
+
+    @abstractmethod
+    def get_classrooms_in_building(self, identifier: str) -> List[Classroom]:
+        """
+        Gets all the classrooms in a building.
+        :param identifier: building identifier.
+        :return: Returns the classrooms that are in the building.
         """
         pass
 
@@ -39,5 +48,13 @@ class ClassroomSource(ABC):
         """
         Gets all the classroom inside the source.
         :return: Returns a List of all the classrooms inside the source.
+        """
+        pass
+
+    @abstractmethod
+    def get_all_buildings(self) -> List[Building]:
+        """
+        Gets all the building inside the source.
+        :return: Returns a List of all the buildings inside the source.
         """
         pass

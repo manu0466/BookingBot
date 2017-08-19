@@ -2,6 +2,7 @@ from booking import Booking, EventsSource, ClassroomSource
 from abc import abstractmethod
 from telegram.ext import Handler
 from telegram import Bot, Update
+import telegram
 
 
 class AbstractBookingHandler(Handler):
@@ -19,7 +20,10 @@ class AbstractBookingHandler(Handler):
         pass
 
     def handle_update(self, update, dispatcher):
-        self.execute(dispatcher.bot, update)
+        bot = dispatcher.bot
+        chat_id = update.message.chat_id
+        bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
+        self.execute(chat_id, dispatcher.bot, update)
         return True
 
     def get_event_source(self) -> EventsSource:
@@ -29,9 +33,10 @@ class AbstractBookingHandler(Handler):
         return self.backend.get_classroom_source()
 
     @abstractmethod
-    def execute(self, bot: Bot, update: Update):
+    def execute(self, chat_id,  bot: Bot, update: Update):
         """
         Method called when one of the command passed in the constructor is received.
+        :param chat_id: Unique identifier of a conversation.
         :param bot: Object that represents the Telegram Bot.
         :param update: Object that represents a Telegram Update.
         """

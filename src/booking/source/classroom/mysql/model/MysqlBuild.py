@@ -8,4 +8,5 @@ class MysqlBuild(BaseModel):
     """
     Mysql representation of a build.
     """
+    identifier = CharField()
     name = CharField()
