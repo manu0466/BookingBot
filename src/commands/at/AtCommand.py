@@ -54,6 +54,7 @@ class AtCommand(TextHandler):
                                                "The minute value should be >= 0 and < 60")
         else:
             bot.send_message(chat_id, text="Invalid format")
+        return True
 
     def parse_values(self, text_value: str, separator: str):
         values = text_value.split(separator)

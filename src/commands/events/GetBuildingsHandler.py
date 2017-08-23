@@ -21,3 +21,5 @@ class GetBuildingsHandler(TextHandler):
             bot.send_message(chat_id=chat_id, text="Available buildings", reply_markup=self._keyboard)
         else:
             bot.send_message(chat_id=chat_id, text="Sorry, no buildings available")
+
+        return True

@@ -25,3 +25,5 @@ class StartCommand(TextHandler):
         bot.send_message(chat_id,
                          text=self._message,
                          parse_mode=telegram.ParseMode.MARKDOWN)
+        return True
+

@@ -28,3 +28,4 @@ class NowCommand(TextHandler):
                 else:
                     text += "*" + classroom.get_name() + "* no events untill close\n"
         bot.send_message(chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
+        return True

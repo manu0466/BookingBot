@@ -30,3 +30,5 @@ class ClassroomHandler(TextHandler):
         else:
             message = "No scheduled events"
         bot.send_message(chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.MARKDOWN)
+        return True
+

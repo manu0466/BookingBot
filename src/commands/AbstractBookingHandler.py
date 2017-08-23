@@ -23,8 +23,7 @@ class AbstractBookingHandler(Handler):
         bot = dispatcher.bot
         chat_id = update.message.chat_id
         bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-        self.execute(chat_id, dispatcher.bot, update)
-        return True
+        return self.execute(chat_id, dispatcher.bot, update)
 
     def get_event_source(self) -> EventsSource:
         return self.backend.get_events_source()

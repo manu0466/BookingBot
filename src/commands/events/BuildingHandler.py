@@ -17,19 +17,24 @@ class BuildingHandler(TextHandler):
         super().__init__(booking, keys, False, exact_match=True)
 
     def execute(self, chat_id, bot: Bot, update: Update):
-        building_identifier = self._buildings_dict[update.message.text]
-        classrooms = self.get_classroom_source().get_classrooms_in_building(building_identifier)
-        keyboard_button = []
-        counter = 0
-        row = -1
-        for classroom in classrooms:
-            if counter == 0:
-                keyboard_button.append([])
-                row += 1
-            keyboard_button[row].append(KeyboardButton("/"+classroom.get_name().lower()))
-            counter += 1
-            if counter == 3:
-                counter = 0
-        keyboard_button.append(["/buildings"])
-        reply_keyboard = ReplyKeyboardMarkup(keyboard_button)
-        bot.send_message(chat_id=chat_id, text="Available classrooms", reply_markup=reply_keyboard)
+        handled = False
+        if update.message.text in self._buildings_dict:
+            handled = True
+            building_identifier = self._buildings_dict[update.message.text]
+            classrooms = self.get_classroom_source().get_classrooms_in_building(building_identifier)
+            keyboard_button = []
+            counter = 0
+            row = -1
+            for classroom in classrooms:
+                if counter == 0:
+                    keyboard_button.append([])
+                    row += 1
+                keyboard_button[row].append(KeyboardButton("/"+classroom.get_name().lower()))
+                counter += 1
+                if counter == 3:
+                    counter = 0
+            keyboard_button.append(["/buildings"])
+            reply_keyboard = ReplyKeyboardMarkup(keyboard_button)
+            bot.send_message(chat_id=chat_id, text="Available classrooms", reply_markup=reply_keyboard)
+        return handled
+
