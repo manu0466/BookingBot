@@ -58,3 +58,6 @@ class BaseSpider(metaclass=ABCMeta):
         :return: Returns the root of the html tree.
         """
         return html.fromstring(self._get_html())
+
+    def _get_url(self) -> str:
+        return self._url

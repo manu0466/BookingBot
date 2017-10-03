@@ -2,7 +2,7 @@ from .scheduler import Scheduler
 from .source import EventsSource, ClassroomSource
 from .source.event import MysqlEventsSource
 from .source.classroom import MysqlClassroomSource
-from .spider.math import MathSpider, OfflineSpider
+from .spider.uniweb.math import ArchimedeTowerSpider, LuzzatiSpider, PaolottiSpider
 
 from .scheduler.settings import ShelveSettingsSource
 
@@ -17,7 +17,7 @@ class Booking:
         self._classroom_source = MysqlClassroomSource()
         self._scheduler_settings = ShelveSettingsSource()
         self._scheduler = Scheduler(self._events_source, self._classroom_source, self._scheduler_settings,
-                                    [MathSpider()])
+                                    [ArchimedeTowerSpider(), LuzzatiSpider(), PaolottiSpider()])
 
     def start_scheduler(self):
         """
