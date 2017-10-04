@@ -15,14 +15,19 @@ def str_to_time(value: str) -> time:
 
 class BaseUniwebSpider(BaseSpider):
 
-    def __init__(self, building_code: str, building_key: str):
+    def __init__(self, building_id: str, building_key: str):
+        """
+        Default constructor
+        :param building_id: the id associated from the site to the building.
+        :param building_key: the key associated to the building created using the BuildingBuilder.
+        """
         BaseSpider.__init__(self, 'http://gestionedidattica.unipd.it/PortaleStudenti/rooms_call.php')
-        self._building_code = building_code
+        self._building_id = building_id
         self._building_key = building_key
 
     def get_events(self) -> List[SpiderEvent]:
         payload = {'form-type': 'rooms',
-                   'sede': self._building_code,
+                   'sede': self._building_id,
                    'date': datetime.now().strftime("%d-%m-%Y"),
                    '_lang': 'it',
                    }
@@ -48,6 +53,6 @@ class BaseUniwebSpider(BaseSpider):
 
 
 if __name__ == '__main__':
-    spider = ArchimedeTowerSpider()
+    spider = BaseUniwebSpider("306", "")
     events = spider.get_events()
     print(events)
