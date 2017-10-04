@@ -24,8 +24,8 @@ class NowCommand(TextHandler):
             if events_source.is_classroom_free(classroom.get_identifier(), date_time=time):
                 event = events_source.get_next_event(classroom.get_identifier(), time)
                 if event is not None:
-                    text += "*" + classroom.get_name() + "* free untill " + event.get_begin().strftime("%H:%M") + "\n"
+                    text += "*" + classroom.get_name() + "* free until " + event.get_begin().strftime("%H:%M") + "\n"
                 else:
-                    text += "*" + classroom.get_name() + "* no events untill close\n"
+                    text += "*" + classroom.get_name() + "* no events until close\n"
         bot.send_message(chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
         return True

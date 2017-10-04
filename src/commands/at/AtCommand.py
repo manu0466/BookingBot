@@ -45,9 +45,9 @@ class AtCommand(TextHandler):
                         event = events_source.get_next_event(classroom.get_identifier(), time)
                         text += "*"
                         if event is not None:
-                            text += classroom.get_name() + "* free untill " + event.get_begin().strftime("%H:%M") + "\n"
+                            text += classroom.get_name() + "* free until " + event.get_begin().strftime("%H:%M") + "\n"
                         else:
-                            text += classroom.get_name() + "* no events untill close\n"
+                            text += classroom.get_name() + "* no events until close\n"
                 bot.send_message(chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
             else:
                 bot.send_message(chat_id, text="The hour value should be >= 0 and < 24\n"
