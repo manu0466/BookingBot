@@ -44,9 +44,16 @@ class MysqlEventsSource(EventsSource):
             event = query_result_to_event(events[0])
         return event
 
-    def get_classroom_events(self, classroom_identifier: str):
+    def get_all_classroom_events(self, classroom_identifier: str):
         return query_result_to_events(MysqlEvent.select()
                                       .where(MysqlEvent.classroom_identifier == classroom_identifier))
+
+    def get_today_classroom_events(self, classroom_identifier: str) -> List[Event]:
+        start = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
+        end = datetime.today().replace(hour=23, minute=59, second=59, microsecond=0)
+        return query_result_to_events(MysqlEvent.select()
+                                      .where(MysqlEvent.classroom_identifier == classroom_identifier,
+                                             MysqlEvent.start >= start, MysqlEvent.end <= end))
 
     def delete_old_events(self):
         old_time_value = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)

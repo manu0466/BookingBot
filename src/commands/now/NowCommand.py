@@ -22,10 +22,11 @@ class NowCommand(TextHandler):
         text = "*Current time: " + time.strftime("%H:%M") + "*\n"
         for classroom in classroom_source.get_all_classrooms():
             if events_source.is_classroom_free(classroom.get_identifier(), date_time=time):
+                text += "/" + classroom.get_name().lower()
                 event = events_source.get_next_event(classroom.get_identifier(), time)
                 if event is not None:
-                    text += "*" + classroom.get_name() + "* free until " + event.get_begin().strftime("%H:%M") + "\n"
+                    text += " free until " + event.get_begin().strftime("%H:%M") + "\n"
                 else:
-                    text += "*" + classroom.get_name() + "* no events until close\n"
+                    text += " no events until close\n"
         bot.send_message(chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
         return True

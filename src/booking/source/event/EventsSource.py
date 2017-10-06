@@ -40,7 +40,16 @@ class EventsSource(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def get_classroom_events(self, classroom_identifier: str) -> List[Event]:
+    def get_all_classroom_events(self, classroom_identifier: str) -> List[Event]:
+        """
+        Gets all the scheduled events for the provided classroom.
+        :param classroom_identifier: Identifier of the classroom of interest.
+        :return: Returns a list of all the events scheduled in the provided class.
+        """
+        pass
+
+    @abstractmethod
+    def get_today_classroom_events(self, classroom_identifier: str) -> List[Event]:
         """
         Gets all the scheduled events for the provided classroom.
         :param classroom_identifier: Identifier of the classroom of interest.
