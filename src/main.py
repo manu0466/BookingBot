@@ -4,9 +4,10 @@ from telegram.ext import Updater
 import configurations
 from booking import Booking
 from commands.start import StartCommand
+from commands.help import HelpCommand
 from commands.now import NowCommand
 from commands.at import AtCommand
-from commands.decorator import CommandDecorator
+from commands.decorator import CommandDecorator, AdminCommand
 from commands.events import BuildingHandler, ClassroomHandler, GetBuildingsHandler
 
 # Enable logging
@@ -33,6 +34,7 @@ def main():
     dp = updater.dispatcher
     # Adds the commands
     dp.add_handler(CommandDecorator(StartCommand(booking=booking)))
+    dp.add_handler(CommandDecorator(HelpCommand(booking=booking)))
     dp.add_handler(NowCommand(booking=booking))
     dp.add_handler(AtCommand(booking=booking))
     dp.add_handler(CommandDecorator(BuildingHandler(booking)))

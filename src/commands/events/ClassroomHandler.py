@@ -18,9 +18,9 @@ class ClassroomHandler(TextHandler):
         super().__init__(booking, keys, case_sensitive=False, exact_match=True)
 
     def execute(self, chat_id, bot: Bot, update: Update):
-        classroom_identifier = self._classrooms_dict[update.message.text]
+        classroom_identifier = self._classrooms_dict[update.message.text.lower()]
         event_source = self.get_event_source()
-        events = event_source.get_classroom_events(classroom_identifier)
+        events = event_source.get_today_classroom_events(classroom_identifier)
         message = ""
         if len(events) > 0:
             for event in events:
@@ -30,3 +30,5 @@ class ClassroomHandler(TextHandler):
         else:
             message = "No scheduled events"
         bot.send_message(chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.MARKDOWN)
+        return True
+

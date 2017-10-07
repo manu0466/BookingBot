@@ -43,17 +43,18 @@ class AtCommand(TextHandler):
                 for classroom in classroom_source.get_all_classrooms():
                     if events_source.is_classroom_free(classroom.get_identifier(), date_time=time):
                         event = events_source.get_next_event(classroom.get_identifier(), time)
-                        text += "*"
+                        text += "/" + classroom.get_name().lower()
                         if event is not None:
-                            text += classroom.get_name() + "* free untill " + event.get_begin().strftime("%H:%M") + "\n"
+                            text += " free until " + event.get_begin().strftime("%H:%M") + "\n"
                         else:
-                            text += classroom.get_name() + "* no events untill close\n"
+                            text += " no events until close\n"
                 bot.send_message(chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
             else:
                 bot.send_message(chat_id, text="The hour value should be >= 0 and < 24\n"
                                                "The minute value should be >= 0 and < 60")
         else:
             bot.send_message(chat_id, text="Invalid format")
+        return True
 
     def parse_values(self, text_value: str, separator: str):
         values = text_value.split(separator)

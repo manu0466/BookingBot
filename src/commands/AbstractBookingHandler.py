@@ -1,4 +1,4 @@
-from booking import Booking, EventsSource, ClassroomSource
+from booking import Booking, EventsSource, ClassroomSource, UserSource
 from abc import abstractmethod
 from telegram.ext import Handler
 from telegram import Bot, Update
@@ -23,14 +23,16 @@ class AbstractBookingHandler(Handler):
         bot = dispatcher.bot
         chat_id = update.message.chat_id
         bot.send_chat_action(chat_id=chat_id, action=telegram.ChatAction.TYPING)
-        self.execute(chat_id, dispatcher.bot, update)
-        return True
+        return self.execute(chat_id, dispatcher.bot, update)
 
     def get_event_source(self) -> EventsSource:
         return self.backend.get_events_source()
 
     def get_classroom_source(self) -> ClassroomSource:
         return self.backend.get_classroom_source()
+
+    def get_user_source(self) -> UserSource:
+        return self.backend.get_user_source()
 
     @abstractmethod
     def execute(self, chat_id,  bot: Bot, update: Update):
