@@ -2,6 +2,7 @@ from .scheduler import Scheduler
 from .source import EventsSource, ClassroomSource
 from .source.event import MysqlEventsSource
 from .source.classroom import MysqlClassroomSource
+from .source.user import MysqlUserSource, UserSource
 from .spider.uniweb.math import ArchimedeTowerSpider, LuzzatiSpider, PaolottiSpider
 
 from .scheduler.settings import ShelveSettingsSource
@@ -15,6 +16,7 @@ class Booking:
     def __init__(self):
         self._events_source = MysqlEventsSource()
         self._classroom_source = MysqlClassroomSource()
+        self._user_source = MysqlUserSource()
         self._scheduler_settings = ShelveSettingsSource()
         self._scheduler = Scheduler(self._events_source, self._classroom_source, self._scheduler_settings,
                                     [ArchimedeTowerSpider(), LuzzatiSpider(), PaolottiSpider()])
@@ -44,3 +46,10 @@ class Booking:
         :return: Returns an instance of ClassroomSource.
         """
         return self._classroom_source
+
+    def get_user_source(self) -> UserSource:
+        """
+        Gets the source that can be used to access the users.
+        :return: Returns an instance of UserSource.
+        """
+        return self._user_source
