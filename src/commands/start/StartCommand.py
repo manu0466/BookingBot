@@ -10,9 +10,9 @@ class StartCommand(TextHandler):
     """
     def __init__(self, booking: Booking):
         super(StartCommand, self).__init__(booking, ['start'])
-        self._message = ("Hi mate, welcome into @BookingMathUniPd_bot\n"
-                         "To know how the bot work you can use the /help command.\n"
-                         "If you found some bug or you have some tips to improve the bot fell "
+        self._message = ("Hi, welcome into @BookingMathUniPd_bot\n"
+                         "To know how the bot works you can use the /help command.\n"
+                         "If you found some bugs or you have some tips to improve the bot feel "
                          "free to contact me at @ManuelTuretta.")
 
     def execute(self, chat_id,  bot: Bot, update: Update):
