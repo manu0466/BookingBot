@@ -1,3 +1,4 @@
+import logging
 from typing import List
 from peewee import *
 from booking.utils.mysql import get_db
@@ -20,7 +21,7 @@ class MysqlClassroomSource(ClassroomSource):
         try:
             class_room = MysqlClassroom.get(MysqlClassroom.name == name)
         except MysqlClassroom.DoesNotExist:
-            print("MysqlClassroomSource.get_classroom: No class found with name: %s" % name)
+            logging.error("MysqlClassroomSource.get_classroom: No class found with name: %s" % name)
         return query_result_to_classroom(class_room)
 
     def get_classrooms_in_building(self, identifier: str) -> List[Classroom]:
@@ -34,7 +35,7 @@ class MysqlClassroomSource(ClassroomSource):
         except MysqlClassroom.DoesNotExist:
             MysqlClassroom.create(build=build, name=classroom.get_name(), floor=classroom.get_floor(),
                                   identifier=classroom.get_identifier())
-            print("MysqlClassroomSource.add_classroom: No class found with name: %s" % classroom.get_name())
+            logging.error("MysqlClassroomSource.add_classroom: No class found with name: %s" % classroom.get_name())
 
     def get_all_classrooms(self) -> List[Classroom]:
         return query_result_to_classrooms(MysqlClassroom.select().order_by(MysqlClassroom.name.asc()).execute())

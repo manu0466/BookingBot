@@ -2,3 +2,4 @@
 botdb
 scheduler_settings
 __pycache__
+*.log

@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from threading import Thread, Event
 from time import sleep
@@ -41,7 +42,7 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
     while not stop_event.is_set():
         settings = settings_source.get_settings()
         if settings.need_refresh():
-            print("Starting scheduler")
+            logging.info("Starting scheduler")
             events_source.delete_old_events()
             # Calls the spider and update the source
             for spider in spiders:
@@ -64,7 +65,7 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
                 for event in spider.get_events():
                     # Checks if the classroom provided from the spider is present in the dict.
                     if event.get_classroom_key() not in classrooms_dict:
-                        print("WARN no classroom found for: " + event.get_classroom_key())
+                        logging.warning("No classroom found for: " + event.get_classroom_key())
                     else:
                         # Adds the event to the source.
                         events_source.add_event(SpiderEventAdapter(event))
@@ -74,13 +75,13 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
             # Updates the settings
             settings_source.update_settings(settings)
         else:
-            print("Scheduler skipped")
+            logging.info("Scheduler skipped")
 
         now = datetime.now()
         next_refresh = settings.get_next_refresh_date()
         next_refresh_time = (next_refresh - now).seconds
-        print("Next scheduler refresh in %d seconds" % next_refresh_time)
-        print("Total number of events: %d" % len(events_source.get_all_events()))
+        logging.info("Next scheduler refresh in %d seconds" % next_refresh_time)
+        logging.info("Total number of events: %d" % len(events_source.get_all_events()))
         # Wait until is time to run the spiders again.
         sleep(next_refresh_time)
 
