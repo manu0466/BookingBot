@@ -26,3 +26,5 @@ BOT_SQL_PASSWORD = "botpassword"
 
 # Path where wil be stored the configurations
 SCHEDULER_CONFIG_PATH = os.path.dirname(__file__)
+# File that holds the log
+LOG_FILENAME = os.path.dirname(__file__) + "/booking.log"

@@ -26,7 +26,7 @@ class MysqlEventsSource(EventsSource):
     def get_current_event(self, classroom_identifier: str, date_time: datetime) -> Event:
         events = MysqlEvent.select() \
             .where(MysqlEvent.start <= date_time,
-                   MysqlEvent.end >= date_time,
+                   MysqlEvent.end > date_time,
                    MysqlEvent.classroom_identifier == classroom_identifier)
         event = None
         if len(events) > 0:
