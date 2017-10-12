@@ -56,7 +56,7 @@ class MysqlEventsSource(EventsSource):
                                              MysqlEvent.start >= start, MysqlEvent.end <= end))
 
     def delete_old_events(self):
-        old_time_value = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0) - timedelta(days=1)
+        old_time_value = datetime.now().replace(hour=23, minute=59, second=59, microsecond=0) - timedelta(days=1)
         MysqlEvent.delete() \
             .where(MysqlEvent.start <= old_time_value) \
             .execute()
