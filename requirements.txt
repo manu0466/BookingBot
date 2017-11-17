@@ -5,3 +5,4 @@ typing==3.6.1
 peewee==2.10.1
 PyMySQL==0.7.11
 emoji==0.4.5
+dependency_injector=3.7.0
