@@ -5,7 +5,7 @@ import os
 #
 
 # Telegram bot API token
-API_TOKEN = "API_TOKEN"
+API_TOKEN = "133010209:AAGN-0LacvgfBS_7OKbS-lioISJzkfJORF0"
 
 #
 # SQL configurations

@@ -5,7 +5,7 @@ from time import sleep
 from typing import List
 
 from .adapter import SpiderEventAdapter
-from ..spider import BaseSpider
+from ..spider import BaseSpider, SpiderFactory
 from ..source import EventsSource, ClassroomSource, Classroom, Building
 from .settings import SettingsSource
 
@@ -16,15 +16,15 @@ class Scheduler:
     Class that schedule the spiders to update the events inside the events source.
     """
 
-    def __init__(self, collection: EventsSource, classroom_source: ClassroomSource,
-                 settings_source: SettingsSource, spiders: List[BaseSpider]):
-        self._collection = collection  # type: EventsSource
+    def __init__(self, events_source: EventsSource, classroom_source: ClassroomSource,
+                 settings_source: SettingsSource, spiders_provider: SpiderFactory):
+        self._collection = events_source  # type: EventsSource
         self._classroom_source = classroom_source  # type: ClassroomSource
-        self._spiders = spiders  # type: List[BaseSpider]
+        self._spiders = spiders_provider.get_spiders()  # type: List[BaseSpider]
         self._settings_source = settings_source  # type: SettingsSource
         self._stop_event = Event()
         self._thread = Thread(target=_scheduler_loop,
-                              args=(collection, classroom_source, spiders,
+                              args=(events_source, classroom_source, self._spiders,
                                     settings_source, self._stop_event))  # type: Thread
         self._thread.setName("BookingBot Scheduler")
         self._thread.daemon = True

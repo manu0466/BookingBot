@@ -2,7 +2,7 @@
 import logging
 from telegram.ext import Updater
 import configurations
-from booking import Booking
+from booking import Booking, BookingProvider
 from commands.start import StartCommand
 from commands.help import HelpCommand
 from commands.now import NowCommand
@@ -28,7 +28,7 @@ def error(bot, update, error):
 def main():
 
     # Starts the bot booking
-    booking = Booking()
+    booking = BookingProvider()  # type: Booking
     booking.start_scheduler()
 
     # Create the Updater and pass it your bot's token.
