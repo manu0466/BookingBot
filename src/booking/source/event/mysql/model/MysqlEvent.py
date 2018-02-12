@@ -10,7 +10,7 @@ class MysqlEvent(BaseModel):
     Mysql representation of a Event
     """
     name = CharField(256)
-    start = DateTimeField('dd-MM-yyyy hh:mm')
-    end = DateTimeField('dd-MM-yyyy hh:mm')
+    start = DateTimeField()
+    end = DateTimeField()
     desc = CharField(256)
     classroom_identifier = CharField(32)
