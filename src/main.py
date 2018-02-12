@@ -38,6 +38,9 @@ def main():
     dp = updater.dispatcher
     # Adds the commands
     dp.add_handler(CommandDecorator(StartCommand(booking=booking)))
+
+
+
     dp.add_handler(CommandDecorator(HelpCommand(booking=booking)))
     dp.add_handler(NowCommand(booking=booking))
     dp.add_handler(AtCommand(booking=booking))

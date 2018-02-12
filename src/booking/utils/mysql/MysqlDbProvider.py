@@ -1,14 +1,14 @@
-from peewee import *
-from .MyRetryDb import MyRetryDB
+from peewee import Database
+from playhouse.sqlite_ext import SqliteExtDatabase
 
 import configurations
 
-MYSQL_DB = MyRetryDB(configurations.BOT_SQL_DB,
-                         user=configurations.BOT_SQL_USER,
-                         passwd=configurations.BOT_SQL_PASSWORD)
+SQLITE_DB = SqliteExtDatabase(configurations.SQLITE_DB,
+                              pragmas=(('cache_size', -1024 * 64),  # 64MB page-cache.
+                                      ('foreign_keys', 1)))  # Enforce foreign-key constraints.
 
 
-def get_db() -> MySQLDatabase:
-    if MYSQL_DB.is_closed():
-        MYSQL_DB.connect()
-    return MYSQL_DB
+def get_db() -> Database:
+    if SQLITE_DB.is_closed():
+        SQLITE_DB.connect()
+    return SQLITE_DB

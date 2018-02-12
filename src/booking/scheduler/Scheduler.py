@@ -8,6 +8,14 @@ from .adapter import SpiderEventAdapter
 from ..spider import BaseSpider, SpiderFactory
 from ..source import EventsSource, ClassroomSource, Classroom, Building
 from .settings import SettingsSource
+from rx.subjects import Subject
+from rx import Observable
+
+
+class SchedulerStatus:
+
+    def __init__(self, status):
+        self._status = status
 
 
 class Scheduler:
@@ -18,6 +26,7 @@ class Scheduler:
 
     def __init__(self, events_source: EventsSource, classroom_source: ClassroomSource,
                  settings_source: SettingsSource, spiders_provider: SpiderFactory):
+        self._status_subject = Subject()
         self._collection = events_source  # type: EventsSource
         self._classroom_source = classroom_source  # type: ClassroomSource
         self._spiders = spiders_provider.get_spiders()  # type: List[BaseSpider]
@@ -25,7 +34,7 @@ class Scheduler:
         self._stop_event = Event()
         self._thread = Thread(target=_scheduler_loop,
                               args=(events_source, classroom_source, self._spiders,
-                                    settings_source, self._stop_event))  # type: Thread
+                                    settings_source, self._stop_event, self._status_subject))  # type: Thread
         self._thread.setName("BookingBot Scheduler")
         self._thread.daemon = True
 
@@ -35,14 +44,18 @@ class Scheduler:
     def stop(self):
         self._stop_event.set()
 
+    def on_status_changed(self) -> Observable:
+        return self._status_subject
+
 
 def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSource,
                     spiders: List[BaseSpider],
-                    settings_source: SettingsSource, stop_event: Event):
+                    settings_source: SettingsSource, stop_event: Event, status_subject: Subject):
     while not stop_event.is_set():
         settings = settings_source.get_settings()
         if settings.need_refresh():
             logging.info("Starting scheduler")
+            status_subject.on_next(SchedulerStatus("START"))
             events_source.delete_old_events()
             # Calls the spider and update the source
             for spider in spiders:
@@ -82,6 +95,9 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
         next_refresh_time = (next_refresh - now).seconds
         logging.info("Next scheduler refresh in %d seconds" % next_refresh_time)
         logging.info("Total number of events: %d" % len(events_source.get_all_events()))
+        status_subject.on_next(SchedulerStatus("COMPLETED"))
         # Wait until is time to run the spiders again.
         sleep(next_refresh_time)
+
+    status_subject.on_completed()
 
