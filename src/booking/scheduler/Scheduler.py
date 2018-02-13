@@ -3,6 +3,7 @@ from datetime import datetime
 from threading import Thread, Event
 from time import sleep
 from typing import List
+from injector import inject
 
 from .adapter import SpiderEventAdapter
 from ..spider import BaseSpider, SpiderFactory
@@ -23,7 +24,7 @@ class Scheduler:
     """
     Class that schedule the spiders to update the events inside the events source.
     """
-
+    @inject
     def __init__(self, events_source: EventsSource, classroom_source: ClassroomSource,
                  settings_source: SettingsSource, spiders_provider: SpiderFactory):
         self._status_subject = Subject()

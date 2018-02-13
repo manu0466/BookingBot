@@ -4,5 +4,5 @@ requests==2.13.0
 typing==3.6.1
 peewee==2.10.1
 emoji==0.4.5
-dependency_injector=3.7.0
+injector==0.13.4
 rx==1.6.0

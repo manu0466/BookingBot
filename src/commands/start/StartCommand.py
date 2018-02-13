@@ -1,6 +1,8 @@
 from commands import TextHandler
 from telegram import Update, Bot
 import telegram
+from injector import inject
+
 from booking import Booking, User
 
 
@@ -8,6 +10,7 @@ class StartCommand(TextHandler):
     """
     Class that handle the start command.
     """
+    @inject
     def __init__(self, booking: Booking):
         super(StartCommand, self).__init__(booking, ['start'])
         self._message = ("Hi, welcome into @BookingMathUniPd_bot\n"

@@ -1,9 +1,12 @@
+from injector import inject
+
 from booking.usecase import UseCase
 from booking.source.user import UserSource
 
 
 class IsUserAdminUseCase(UseCase):
 
+    @inject
     def __init__(self, users_source: UserSource):
         self._users_source = users_source
         self._result_value = False

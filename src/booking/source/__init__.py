@@ -1,13 +1,31 @@
-from .classroom import ClassroomSourceProvider, ClassroomSource, Classroom, Building
-from .event import EventSourceProvider, EventsSource
-from .user import UserSourceProvider, UserSource
-import dependency_injector.containers as containers
+from injector import Module, provider, singleton
+from .classroom import ClassroomSource, Classroom, Building
+from .event import EventsSource
+from .user import UserSource
 
 
-class SourceContainer(containers.DeclarativeContainer):
+class ClassRoomSourceModule(Module):
 
-    users = UserSourceProvider
+    @provider
+    @singleton
+    def class_room_source(self) -> ClassroomSource:
+        from .classroom.database import DatabaseClassroomSource
+        return DatabaseClassroomSource()
 
-    events = EventSourceProvider
 
-    classrooms = ClassroomSourceProvider
+class EventsSourceModule(Module):
+
+    @provider
+    @singleton
+    def class_room_source(self) -> EventsSource:
+        from .event.database import DatabaseEventsSource
+        return DatabaseEventsSource()
+
+
+class UsersSourceModule(Module):
+
+    @provider
+    @singleton
+    def class_room_source(self) -> UserSource:
+        from .user.database import DatabaseUserSource
+        return DatabaseUserSource()

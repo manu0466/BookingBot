@@ -1,12 +1,15 @@
 from typing import List, Dict
 from telegram import Bot, Update, KeyboardButton, ReplyKeyboardMarkup
 import telegram
+from injector import inject
+
 from booking import Booking
 from .. import TextHandler
 
 
 class ClassroomHandler(TextHandler):
 
+    @inject
     def __init__(self, booking: Booking):
         classrooms_source = booking.get_classroom_source()
         self._classrooms_dict = {}  # type: Dict

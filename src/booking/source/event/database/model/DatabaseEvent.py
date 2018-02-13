@@ -1,8 +1,8 @@
 from peewee import *
-from booking.utils.mysql.models.BaseModel import BaseModel
+from booking.utils.database.models.BaseModel import BaseModel
 
 
-class MysqlEvent(BaseModel):
+class DatabaseEvent(BaseModel):
     class Meta:
         db_table = 'event'
 

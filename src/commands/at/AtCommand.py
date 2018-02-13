@@ -2,6 +2,8 @@ from datetime import datetime
 from commands import TextHandler
 from telegram import Update, Bot, Message
 import telegram
+from injector import inject
+
 from booking import Booking, Event
 import emoji
 import re
@@ -13,6 +15,7 @@ class AtCommand(TextHandler):
     Class that represents the At command.
     """
 
+    @inject
     def __init__(self, booking: Booking):
         super(AtCommand, self).__init__(booking, ['at'])
         # Regex to validate the time format

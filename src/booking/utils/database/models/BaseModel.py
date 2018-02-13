@@ -1,5 +1,5 @@
 from peewee import *
-from ..MysqlDbProvider import get_db
+from ..DatabaseProvider import get_db
 
 
 class BaseModel(Model):

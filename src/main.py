@@ -1,8 +1,14 @@
 #!/usr/bin/env python
 import logging
 from telegram.ext import Updater
+from injector import Injector
 import configurations
-from booking import Booking, BookingProvider
+
+# DI imports
+from booking.source import ClassRoomSourceModule, EventsSourceModule, UsersSourceModule
+from booking.scheduler.settings import SettingSourceModule
+
+from booking import Booking
 from commands.start import StartCommand
 from commands.help import HelpCommand
 from commands.now import NowCommand
@@ -27,8 +33,13 @@ def error(bot, update, error):
 
 def main():
 
+    injector = Injector(modules=[ClassRoomSourceModule(),
+                                 EventsSourceModule(),
+                                 UsersSourceModule(),
+                                 SettingSourceModule()])
+
     # Starts the bot booking
-    booking = BookingProvider()  # type: Booking
+    booking = injector.get(Booking)  # type: Booking
     booking.start_scheduler()
 
     # Create the Updater and pass it your bot's token.
@@ -37,18 +48,16 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
     # Adds the commands
-    dp.add_handler(CommandDecorator(StartCommand(booking=booking)))
+    dp.add_handler(CommandDecorator(injector.get(StartCommand)))
 
-
-
-    dp.add_handler(CommandDecorator(HelpCommand(booking=booking)))
-    dp.add_handler(NowCommand(booking=booking))
-    dp.add_handler(AtCommand(booking=booking))
-    dp.add_handler(CommandDecorator(BuildingHandler(booking)))
-    classroom_handler = ClassroomHandler(booking)
+    dp.add_handler(CommandDecorator(injector.get(HelpCommand)))
+    dp.add_handler(injector.get(NowCommand))
+    dp.add_handler(injector.get(AtCommand))
+    dp.add_handler(CommandDecorator(injector.get(BuildingHandler)))
+    classroom_handler = injector.get(ClassroomHandler)
     dp.add_handler(CommandDecorator(classroom_handler))
     dp.add_handler(classroom_handler)
-    dp.add_handler(CommandDecorator(GetBuildingsHandler(booking)))
+    dp.add_handler(CommandDecorator(injector.get(GetBuildingsHandler)))
 
     # log all errors
     dp.add_error_handler(error)

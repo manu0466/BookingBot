@@ -1,3 +1,5 @@
+from injector import inject
+
 from .scheduler import Scheduler
 from .source import EventsSource, ClassroomSource, UserSource
 
@@ -7,6 +9,7 @@ class Booking:
     Class used as a facade to interact with the Scheduler and the EventsSource,
     this also initiate the source and the spider scheduler.
     """
+    @inject
     def __init__(self, events_source: EventsSource, classroom_source: ClassroomSource,
                  user_source: UserSource, scheduler: Scheduler):
         self._events_source = events_source
