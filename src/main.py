@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 import logging
 from telegram.ext import Updater
+from injector import Injector
 import configurations
+
+# DI imports
+from booking.source import ClassRoomSourceModule, EventsSourceModule, UsersSourceModule
+from booking.scheduler.settings import SettingSourceModule
+
 from booking import Booking
 from commands.start import StartCommand
 from commands.help import HelpCommand
@@ -12,7 +18,11 @@ from commands.events import BuildingHandler, ClassroomHandler, GetBuildingsHandl
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
+                    level=logging.INFO,
+                    handlers=[
+                        logging.FileHandler(configurations.LOG_FILENAME),
+                        logging.StreamHandler()
+                    ])
 
 logger = logging.getLogger(__name__)
 
@@ -23,8 +33,13 @@ def error(bot, update, error):
 
 def main():
 
+    injector = Injector(modules=[ClassRoomSourceModule(),
+                                 EventsSourceModule(),
+                                 UsersSourceModule(),
+                                 SettingSourceModule()])
+
     # Starts the bot booking
-    booking = Booking()
+    booking = injector.get(Booking)  # type: Booking
     booking.start_scheduler()
 
     # Create the Updater and pass it your bot's token.
@@ -33,27 +48,28 @@ def main():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
     # Adds the commands
-    dp.add_handler(CommandDecorator(StartCommand(booking=booking)))
-    dp.add_handler(CommandDecorator(HelpCommand(booking=booking)))
-    dp.add_handler(NowCommand(booking=booking))
-    dp.add_handler(AtCommand(booking=booking))
-    dp.add_handler(CommandDecorator(BuildingHandler(booking)))
-    classroom_handler = ClassroomHandler(booking)
+    dp.add_handler(CommandDecorator(injector.get(StartCommand)))
+
+    dp.add_handler(CommandDecorator(injector.get(HelpCommand)))
+    dp.add_handler(injector.get(NowCommand))
+    dp.add_handler(injector.get(AtCommand))
+    dp.add_handler(CommandDecorator(injector.get(BuildingHandler)))
+    classroom_handler = injector.get(ClassroomHandler)
     dp.add_handler(CommandDecorator(classroom_handler))
     dp.add_handler(classroom_handler)
-    dp.add_handler(CommandDecorator(GetBuildingsHandler(booking)))
+    dp.add_handler(CommandDecorator(injector.get(GetBuildingsHandler)))
 
     # log all errors
     dp.add_error_handler(error)
 
     # Start the Bot
-    print("Starting...")
+    logging.info("Starting...")
     updater.start_polling()
 
     # Run the bot until you press Ctrl-C or the process receives SIGINT,
     # SIGTERM or SIGABRT. This should be used most of the time, since
     # start_polling() is non-blocking and will stop the bot gracefully.
-    print("Bot online!")
+    logging.info("Bot online!")
     updater.idle()
 
 

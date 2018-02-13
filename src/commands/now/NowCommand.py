@@ -1,6 +1,8 @@
 from datetime import datetime
 import telegram
 from telegram import Update, Bot
+from injector import inject
+
 from booking import Booking
 from commands import TextHandler
 
@@ -11,7 +13,7 @@ class NowCommand(TextHandler):
     Class that represents the now command.
     This command will show to the user the currently free classroom.
     """
-
+    @inject
     def __init__(self, booking: Booking):
         super(NowCommand, self).__init__(booking, ['now'], exact_match=True)
 

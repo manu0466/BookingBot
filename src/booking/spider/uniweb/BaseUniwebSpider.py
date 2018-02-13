@@ -7,6 +7,7 @@ from datetime import time
 from datetime import datetime
 import requests
 import json
+import logging
 
 
 def str_to_time(value: str) -> time:
@@ -34,7 +35,6 @@ class BaseUniwebSpider(BaseSpider):
         response = requests.post(self._get_url(), payload)
         result = []
         if response.status_code == 200:
-            print(response.text)
             data = json.loads(response.text)
             if data['n_events'] > 0:
                 events = data['events']
@@ -44,11 +44,11 @@ class BaseUniwebSpider(BaseSpider):
                     end = event['to']
                     classroom = event['NomeAula']
                     building = event['NomeSede']
-                    print(name + " " + start + "-" + end + " " + classroom + " " + building)
+                    logging.info(name + " " + start + "-" + end + " " + classroom + " " + building)
                     result.append(SpiderEvent(classroom, self._building_key, name, "", str_to_time(start), str_to_time(end),
                                               date.today()))
         else:
-            print(response.content)
+            logging.error(response.content)
         return result
 
 

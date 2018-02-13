@@ -1,6 +1,8 @@
 from commands import TextHandler
 from telegram import Update, Bot
 import telegram
+from injector import inject
+
 from booking import Booking
 
 
@@ -8,6 +10,7 @@ class HelpCommand(TextHandler):
     """
     Class that handle the help command.
     """
+    @inject
     def __init__(self, booking: Booking):
         super(HelpCommand, self).__init__(booking, ['help'])
         self._message = ("*Currently available commands:*\n\n"
