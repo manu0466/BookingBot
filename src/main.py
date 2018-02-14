@@ -8,7 +8,9 @@ import configurations
 from booking.source import ClassRoomSourceModule, EventsSourceModule, UsersSourceModule
 from booking.scheduler.settings import SettingSourceModule
 
-from booking import Booking
+from booking import Booking, BookingModule
+from booking.scheduler import SchedulerModule
+from commands.scheduler import SchedulerRefreshingHandler
 from commands.start import StartCommand
 from commands.help import HelpCommand
 from commands.now import NowCommand
@@ -36,7 +38,9 @@ def main():
     injector = Injector(modules=[ClassRoomSourceModule(),
                                  EventsSourceModule(),
                                  UsersSourceModule(),
-                                 SettingSourceModule()])
+                                 SettingSourceModule(),
+                                 SchedulerModule(),
+                                 BookingModule()])
 
     # Starts the bot booking
     booking = injector.get(Booking)  # type: Booking
@@ -47,6 +51,9 @@ def main():
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
+
+    dp.add_handler(injector.get(SchedulerRefreshingHandler))
+
     # Adds the commands
     dp.add_handler(CommandDecorator(injector.get(StartCommand)))
 

@@ -1,22 +1,22 @@
 import logging
 from datetime import datetime
+from enum import Enum
 from threading import Thread, Event
 from time import sleep
 from typing import List
-from injector import inject
 
 from .adapter import SpiderEventAdapter
 from ..spider import BaseSpider, SpiderFactory
 from ..source import EventsSource, ClassroomSource, Classroom, Building
 from .settings import SettingsSource
-from rx.subjects import Subject
+from rx.subjects import BehaviorSubject, Subject
 from rx import Observable
 
 
-class SchedulerStatus:
-
-    def __init__(self, status):
-        self._status = status
+class SchedulerStatus(Enum):
+    IDLE = 0,
+    START = 1,
+    COMPLETED = 2
 
 
 class Scheduler:
@@ -24,10 +24,9 @@ class Scheduler:
     """
     Class that schedule the spiders to update the events inside the events source.
     """
-    @inject
     def __init__(self, events_source: EventsSource, classroom_source: ClassroomSource,
                  settings_source: SettingsSource, spiders_provider: SpiderFactory):
-        self._status_subject = Subject()
+        self._status_subject = BehaviorSubject(SchedulerStatus.IDLE)
         self._collection = events_source  # type: EventsSource
         self._classroom_source = classroom_source  # type: ClassroomSource
         self._spiders = spiders_provider.get_spiders()  # type: List[BaseSpider]
@@ -56,7 +55,7 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
         settings = settings_source.get_settings()
         if settings.need_refresh():
             logging.info("Starting scheduler")
-            status_subject.on_next(SchedulerStatus("START"))
+            status_subject.on_next(SchedulerStatus.START)
             events_source.delete_old_events()
             # Calls the spider and update the source
             for spider in spiders:
@@ -96,7 +95,7 @@ def _scheduler_loop(events_source: EventsSource, classroom_source: ClassroomSour
         next_refresh_time = (next_refresh - now).seconds
         logging.info("Next scheduler refresh in %d seconds" % next_refresh_time)
         logging.info("Total number of events: %d" % len(events_source.get_all_events()))
-        status_subject.on_next(SchedulerStatus("COMPLETED"))
+        status_subject.on_next(SchedulerStatus.COMPLETED)
         # Wait until is time to run the spiders again.
         sleep(next_refresh_time)
 

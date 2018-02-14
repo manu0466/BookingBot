@@ -5,7 +5,6 @@ import telegram
 from injector import inject
 
 from booking import Booking, Event
-import emoji
 import re
 
 
