@@ -3,29 +3,34 @@ import telegram
 from telegram import Update, Bot
 from injector import inject
 
-from booking import Booking
-from commands import TextHandler
+from booking.usecase import EventsUseCase, ClassroomsUseCase
+from . import FilterableHandler
+from .filter import RegexFilter
 
 
-class NowCommand(TextHandler):
+class NowHandler(FilterableHandler):
 
     """
     Class that represents the now command.
     This command will show to the user the currently free classroom.
     """
     @inject
-    def __init__(self, booking: Booking):
-        super(NowCommand, self).__init__(booking, ['now'], exact_match=True)
+    def __init__(self, events_uc: EventsUseCase, classrooms_uc: ClassroomsUseCase):
+        super().__init__()
+        self._events_uc = events_uc
+        self._classrooms_uc = classrooms_uc
+        self.add_filter(RegexFilter(['now', '/now'], case_sensitive=False, exact_match=True))
+
+    def handle_update(self, update, dispatcher):
+        pass
 
     def execute(self, chat_id, bot: Bot, update: Update):
-        events_source = self.get_event_source()
-        classroom_source = self.get_classroom_source()
         time = datetime.now()
         text = "*Current time: " + time.strftime("%H:%M") + "*\n"
-        for classroom in classroom_source.get_all_classrooms():
-            if events_source.is_classroom_free(classroom.get_identifier(), date_time=time):
+        for classroom in self._classrooms_uc.get_classrooms():
+            if self._classrooms_uc.is_classroom_free(classroom.get_identifier(), time=time):
                 text += "/" + classroom.get_name().lower()
-                event = events_source.get_next_event(classroom.get_identifier(), time)
+                event = self._events_uc.get_next_event(classroom.get_identifier(), time)
                 if event is not None:
                     text += " free until " + event.get_begin().strftime("%H:%M") + "\n"
                 else:

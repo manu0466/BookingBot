@@ -1,22 +1,20 @@
 import threading
-
 from injector import inject
 from telegram import Bot, Update
+from telegram.ext import Handler, Dispatcher
 
-from booking import Booking
-from booking.scheduler.Scheduler import SchedulerStatus
-from commands import AbstractBookingHandler
+from booking.scheduler.Scheduler import SchedulerStatus, Scheduler
 
 
-class SchedulerRefreshingHandler(AbstractBookingHandler):
+class SchedulerRefreshingHandler(Handler):
 
     @inject
-    def __init__(self, booking: Booking):
-        super().__init__(booking)
+    def __init__(self, scheduler: Scheduler):
+        super().__init__(None)
         self._status = SchedulerStatus.IDLE
         self._lock = threading.RLock()
         self._message = "Sorry at the moment i'm refreshing the events :("
-        booking.get_scheduler().on_status_changed() \
+        scheduler.on_status_changed() \
             .subscribe(self.handle_scheduler_status)
 
     def check_update(self, update):
@@ -25,9 +23,10 @@ class SchedulerRefreshingHandler(AbstractBookingHandler):
         self._lock.release()
         return should_handle
 
-    def execute(self, chat_id, bot: Bot, update: Update):
-        bot.send_message(chat_id,
-                         text=self._message)
+    def handle_update(self, update: Update, dispatcher: Dispatcher):
+        chat_id = update.message.chat_id
+        dispatcher.bot.send_message(chat_id, text=self._message)
+        return True
 
     def handle_scheduler_status(self, new_status: SchedulerStatus):
         self._lock.acquire()

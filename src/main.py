@@ -10,13 +10,7 @@ from booking.scheduler.settings import SettingSourceModule
 
 from booking import Booking, BookingModule
 from booking.scheduler import SchedulerModule
-from commands.scheduler import SchedulerRefreshingHandler
-from commands.start import StartCommand
-from commands.help import HelpCommand
-from commands.now import NowCommand
-from commands.at import AtCommand
-from commands.decorator import CommandDecorator, AdminCommand
-from commands.events import BuildingHandler, ClassroomHandler, GetBuildingsHandler
+from bot.handler import *
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -51,20 +45,19 @@ def main():
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
-
+    dp.add_handler(injector.get(LogHandler))
     dp.add_handler(injector.get(SchedulerRefreshingHandler))
+    dp.add_handler(injector.get(StartSchedulerHandler))
 
     # Adds the commands
-    dp.add_handler(CommandDecorator(injector.get(StartCommand)))
+    dp.add_handler(injector.get(StartHandler))
+    dp.add_handler(injector.get(HelpHandler))
+    dp.add_handler(injector.get(NowHandler))
+    dp.add_handler(injector.get(AtHandler))
 
-    dp.add_handler(CommandDecorator(injector.get(HelpCommand)))
-    dp.add_handler(injector.get(NowCommand))
-    dp.add_handler(injector.get(AtCommand))
-    dp.add_handler(CommandDecorator(injector.get(BuildingHandler)))
-    classroom_handler = injector.get(ClassroomHandler)
-    dp.add_handler(CommandDecorator(classroom_handler))
-    dp.add_handler(classroom_handler)
-    dp.add_handler(CommandDecorator(injector.get(GetBuildingsHandler)))
+    dp.add_handler(injector.get(BuildingsKeyboardHandler))
+    dp.add_handler(injector.get(ClassRoomEventHandler))
+    dp.add_handler(injector.get(BuildingEventHandler))
 
     # log all errors
     dp.add_error_handler(error)

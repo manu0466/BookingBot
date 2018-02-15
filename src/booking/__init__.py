@@ -1,6 +1,5 @@
 from injector import Module, provider, singleton
 
-from booking.scheduler import Scheduler
 from .Booking import Booking
 from .source import EventsSource, ClassroomSource, UserSource
 from .source.event import Event
@@ -8,6 +7,8 @@ from .source.user import User
 
 
 class BookingModule(Module):
+
+    from booking.scheduler import Scheduler
 
     @provider
     @singleton

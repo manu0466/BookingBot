@@ -15,7 +15,7 @@ class User:
         def __int__(self):
             return self._value
 
-    def __init__(self, name: str, identifier: int, role):
+    def __init__(self, name: str, identifier: int, role: Role = Role.USER):
         self._name = name
         self._identifier = identifier
         self._role = role
