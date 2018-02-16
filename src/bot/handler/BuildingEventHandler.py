@@ -58,7 +58,7 @@ class BuildingEventHandler(FilterableHandler):
         else:
             buildings = []
             for building in self._buildings_uc.get_buildings():
-                building_name = building.get_name().lower()
+                building_name = building.get_name().lower().replace(" ", "_")
                 self._buildings_map[building_name] = building.get_identifier()
                 buildings.append(building_name)
             self.add_filter(RegexFilter(buildings, case_sensitive=False, handle_command=True))
