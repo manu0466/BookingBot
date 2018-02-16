@@ -36,6 +36,7 @@ class ClassRoomEventHandler(FilterableHandler):
         else:
             message = "No scheduled events"
         dispatcher.bot.send_message(chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.MARKDOWN)
+        return True
 
     def on_scheduler_status_changed(self, new_status: SchedulerStatus):
         if new_status != SchedulerStatus.COMPLETED:

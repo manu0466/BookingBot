@@ -1,4 +1,5 @@
 from injector import inject
+from typing import List
 
 from booking.source import UserSource
 from booking import User
@@ -16,5 +17,9 @@ class UsersUseCase:
     def is_user_present(self, identifier: int) -> bool:
         return self._user_source.get_user_by_identifier(identifier) is not None
 
-    def get_user_count(self):
+    def get_user_count(self) -> int:
         return len(self._user_source.get_all_users())
+
+    def get_users(self) -> List[User]:
+        return self._user_source.get_all_users()
+

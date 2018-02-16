@@ -20,3 +20,5 @@ class StartSchedulerHandler(FilterableHandler):
         # self._scheduler.start()
         bot = dispatcher.bot  # type: Bot
         bot.send_message(update.message.chat_id, "Scheduler started")
+        return True
+

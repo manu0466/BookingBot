@@ -9,3 +9,4 @@ from .LogHandler import LogHandler
 from .BuildingsKeyboardHandler import BuildingsKeyboardHandler
 from .ClassRoomEventHandler import ClassRoomEventHandler
 from .BuildingEventHandler import BuildingEventHandler
+from .UsersHandler import UsersHandler
