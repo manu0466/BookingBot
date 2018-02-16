@@ -3,7 +3,7 @@ from injector import Module, singleton, provider
 from booking.source import EventsSource, ClassroomSource
 from booking.scheduler.settings import SettingsSource
 from booking.spider import SpiderFactory
-from .Scheduler import Scheduler, SchedulerStatus
+from .Scheduler import Scheduler, SchedulerStatus, SchedulerInfo
 
 
 class SchedulerModule(Module):

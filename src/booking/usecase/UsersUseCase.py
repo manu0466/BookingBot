@@ -23,3 +23,10 @@ class UsersUseCase:
     def get_users(self) -> List[User]:
         return self._user_source.get_all_users()
 
+    def get_admins(self) -> List[User]:
+        users = []
+        for user in self._user_source.get_all_users():
+            if user.get_role() == User.Role.ADMIN:
+                users.append(user)
+        return users
+
