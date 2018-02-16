@@ -9,16 +9,7 @@ Mathematic Department.
 First install all the python dependencies with this command: 
 `pip insatll -r requirements.txt`.  
 
-The second step is to initialize the MySql database where will be saved the
-data of the classroom events.
-You can create a docker container running the `init_docker_db.sh` script inside
-the *scripts* folder or self creating a MySql database with the 
-`init_db.sql` script. 
-
-**NOTE**: In case you have edited the database configuration you must update the 
-**configuration.py** file!
-
-Last step is to add your Telegram API token in the **configuration.py** file.
+Last step is to add your Telegram API token in the **token.txt** file.
 
 
 ## Usage
