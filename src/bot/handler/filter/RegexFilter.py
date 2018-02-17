@@ -17,11 +17,14 @@ class RegexFilter(HandlerFilter):
             regex += ("(^" + keywords[i] + (".*$)" if not exact_match else "$)"))
             if i < len(keywords) - 1:
                 regex += "|"
-        if not case_sensitive:
-            self._text_regex = re.compile(regex, re.IGNORECASE)
+        if len(regex) > 0:
+            if not case_sensitive:
+                self._regex = re.compile(regex, re.IGNORECASE)
+            else:
+                self._regex = re.compile(regex)
         else:
-            self._text_regex = re.compile(regex)
+            self._regex = None
 
     def filter(self, message: Message) -> bool:
         text = message.get_escaped_text() if self._handle_command else message.get_text()
-        return self._text_regex.search(text) is not None
+        return self._regex and self._regex.search(text) is not None

@@ -9,6 +9,8 @@ class DatabaseUser(BaseModel):
     """
     Database representation of a User
     """
-    name = CharField(256)
+    username = CharField(64, default='')
+    name = CharField(64, default='')
+    surname = CharField(64, default='')
     identifier = IntegerField()
     role = IntegerField()

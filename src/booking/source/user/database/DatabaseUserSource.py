@@ -13,7 +13,11 @@ class DatabaseUserSource(UserSource):
         self._db = db
 
     def add_user(self, user: User):
-        DatabaseUser.get_or_create(name=user.get_name(), identifier=user.get_identifier(), role=int(user.get_role()))
+        username = escape_none(user.get_username())
+        name = escape_none(user.get_name())
+        surname = escape_none(user.get_surname())
+        DatabaseUser.get_or_create(username=username, name=name, surname=surname,
+                                   identifier=user.get_identifier(), role=int(user.get_role()))
 
     def get_user_by_identifier(self, identifier: int) -> User:
         sql_users = DatabaseUser.select().where(DatabaseUser.identifier == identifier)
@@ -31,4 +35,11 @@ class DatabaseUserSource(UserSource):
 
 
 def UserConverter(sql_user: DatabaseUser) -> User:
-    return User(sql_user.name, sql_user.identifier, User.Role(sql_user.role))
+    return User(sql_user.username, sql_user.name, sql_user.surname, sql_user.identifier, User.Role(sql_user.role))
+
+
+def escape_none(text: str) -> str:
+    if text is None:
+        return ''
+    else:
+        return text

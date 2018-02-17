@@ -20,6 +20,6 @@ class UsersHandler(FilterableHandler):
         users = self._users_uc.get_users()
         message = "Users:\n"
         for user in users:
-            message += "- {0} {1}\n".format(user.get_name(), user.get_role())
+            message += "- {0} {1} {2} {3}\n".format(user.get_username(), user.get_name(), user.get_surname(), user.get_role())
         dispatcher.bot.send_message(update.message.chat_id, message)
         return True
