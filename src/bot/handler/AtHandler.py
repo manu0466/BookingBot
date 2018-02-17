@@ -21,7 +21,7 @@ class AtHandler(FilterableHandler):
         self._re = re.compile("(^[0-9]{1,2}\.[0-9]{1,2}$)|(^[0-9]{1,2}:[0-9]{1,2}$)|(^[0-9]{1,2}$)")
         self._events_uc = events_uc
         self._classrooms_uc = classrooms_uc
-        self.add_filter(RegexFilter(['/at ', 'at '], case_sensitive=False, exact_match=False))
+        self.add_filter(RegexFilter(['at '], case_sensitive=False, exact_match=False, handle_command=True))
 
     def handle_update(self, update, dispatcher):
         # Extract the requested time from the message

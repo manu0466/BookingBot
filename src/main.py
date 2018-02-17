@@ -54,7 +54,6 @@ def main():
     dp.add_handler(injector.get(HelpHandler))
     dp.add_handler(injector.get(NowHandler))
     dp.add_handler(injector.get(AtHandler))
-
     dp.add_handler(injector.get(BuildingsKeyboardHandler))
     dp.add_handler(injector.get(ClassRoomEventHandler))
     dp.add_handler(injector.get(BuildingEventHandler))
