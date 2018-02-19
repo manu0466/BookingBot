@@ -3,6 +3,7 @@ from telegram import Update
 from telegram.ext import Dispatcher
 
 from booking.usecase import UsersUseCase
+from bot.handler.decorator.TypingDecorator import typing
 from .FilterableHandler import FilterableHandler
 from bot.handler.filter import IsAdminHandlerFilter, RegexFilter
 
@@ -16,6 +17,7 @@ class UsersHandler(FilterableHandler):
         self.add_filter(is_admin_filer)
         self.add_filter(RegexFilter(['users'], handle_command=True, case_sensitive=False))
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         users = self._users_uc.get_users()
         message = "Users:\n"

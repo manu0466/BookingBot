@@ -4,6 +4,7 @@ from injector import inject
 from telegram.ext import Dispatcher
 
 from bot.handler import FilterableHandler
+from bot.handler.decorator.TypingDecorator import typing
 from bot.handler.filter import RegexFilter
 
 
@@ -23,6 +24,7 @@ class HelpHandler(FilterableHandler):
                          "Ex.Searching for free classrooms at 3pm will result in the command either At 15:00, At 15.00 or At 15")
         self.add_filter(RegexFilter(['help', "/help"], exact_match=True, case_sensitive=False))
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         chat_id = update.message.chat_id
         dispatcher.bot.send_message(chat_id,

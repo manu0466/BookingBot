@@ -5,6 +5,7 @@ from telegram import Update, Bot
 from telegram.ext import Dispatcher
 
 from booking.scheduler import Scheduler, SchedulerInfo, SchedulerStatus
+from bot.handler.decorator.TypingDecorator import typing
 from bot.handler.filter import RegexFilter, IsAdminHandlerFilter
 from . import FilterableHandler
 
@@ -22,6 +23,7 @@ class StartSchedulerHandler(FilterableHandler):
         self._bot = None
         self._scheduler.on_new_info().subscribe(self._on_scheduler_status_changed)
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         bot = dispatcher.bot  # type: Bot
         if update.message.chat_id not in self._waiting_users:

@@ -5,6 +5,7 @@ from telegram.ext import Dispatcher
 from booking.scheduler import Scheduler, SchedulerStatus
 from booking.usecase import BuildingsUseCase
 from bot.handler import FilterableHandler
+from bot.handler.decorator.TypingDecorator import typing
 from bot.handler.filter import RegexFilter
 
 
@@ -18,6 +19,7 @@ class BuildingsKeyboardHandler(FilterableHandler):
         self._keyboard = None
         scheduler.on_status_changed().subscribe(self.on_scheduler_status_changed)
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         chat_id = update.message.chat_id
         if self._keyboard:

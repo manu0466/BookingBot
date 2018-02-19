@@ -4,6 +4,7 @@ from datetime import datetime
 import telegram
 from injector import inject
 
+from bot.handler.decorator.TypingDecorator import typing
 from . import FilterableHandler
 from bot.handler.filter import RegexFilter
 from booking.usecase import EventsUseCase, ClassroomsUseCase
@@ -23,6 +24,7 @@ class AtHandler(FilterableHandler):
         self._classrooms_uc = classrooms_uc
         self.add_filter(RegexFilter(['at '], case_sensitive=False, exact_match=False, handle_command=True))
 
+    @typing
     def handle_update(self, update, dispatcher):
         # Extract the requested time from the message
         requested_time = update.message.text.replace(" ", "")  # type: str

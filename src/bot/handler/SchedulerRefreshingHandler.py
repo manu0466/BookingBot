@@ -4,6 +4,7 @@ from telegram import Bot, Update
 from telegram.ext import Handler, Dispatcher
 
 from booking.scheduler.Scheduler import SchedulerStatus, Scheduler
+from bot.handler.decorator.TypingDecorator import typing
 
 
 class SchedulerRefreshingHandler(Handler):
@@ -23,6 +24,7 @@ class SchedulerRefreshingHandler(Handler):
         self._lock.release()
         return should_handle
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         chat_id = update.message.chat_id
         dispatcher.bot.send_message(chat_id, text=self._message)

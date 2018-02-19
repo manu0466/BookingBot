@@ -3,6 +3,7 @@ from injector import inject
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import Dispatcher
 
+from bot.handler.decorator.TypingDecorator import typing
 from .FilterableHandler import FilterableHandler
 from bot.handler.filter import RegexFilter
 from booking.usecase import EventsUseCase, BuildingsUseCase, ClassroomsUseCase
@@ -23,6 +24,7 @@ class BuildingEventHandler(FilterableHandler):
         self._buildings_map = {}
         scheduler.on_status_changed().subscribe(self.on_scheduler_status_changed)
 
+    @typing
     def handle_update(self, update: Update, dispatcher: Dispatcher):
         chat_id = update.message.chat_id
         building_name = update.message.text  # type: str

@@ -2,6 +2,7 @@ from datetime import datetime
 import telegram
 from injector import inject
 
+from bot.handler.decorator.TypingDecorator import typing
 from . import FilterableHandler
 from bot.handler.filter import RegexFilter
 from booking.usecase import EventsUseCase, ClassroomsUseCase
@@ -20,6 +21,7 @@ class NowHandler(FilterableHandler):
         self._classrooms_uc = classrooms_uc
         self.add_filter(RegexFilter(['now', 'free'], case_sensitive=False, exact_match=True, handle_command=True))
 
+    @typing
     def handle_update(self, update, dispatcher):
         time = datetime.now()
         text = "*Requested time: " + time.strftime("%H:%M") + "*\n"
