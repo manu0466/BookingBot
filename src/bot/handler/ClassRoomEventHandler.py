@@ -2,6 +2,7 @@ import telegram
 from injector import inject
 from telegram import Update
 from telegram.ext import Dispatcher
+from telegram.utils.helpers import escape_markdown
 
 from bot.handler.decorator.TypingDecorator import typing
 from .FilterableHandler import FilterableHandler
@@ -28,7 +29,7 @@ class ClassRoomEventHandler(FilterableHandler):
             class_name = class_name[1:]
         class_name = class_name.lower()
         events = self._events_uc.get_today_events(self._classrooms_map[class_name])
-        message = ""
+        message = "*Classroom: {0}*\n\n".format(class_name.upper())
         if len(events) > 0:
             for event in events:
                 event_name = event.get_name().replace('*', '')
@@ -36,7 +37,7 @@ class ClassRoomEventHandler(FilterableHandler):
                                                                           event.get_begin().strftime("%H:%M"),
                                                                           event.get_end().strftime("%H:%M"))
         else:
-            message = "No scheduled events"
+            message += "No scheduled events"
         dispatcher.bot.send_message(chat_id=chat_id, text=message, parse_mode=telegram.ParseMode.MARKDOWN)
         return True
 
