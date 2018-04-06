@@ -2,7 +2,7 @@ from typing import List
 
 from booking.spider import BaseSpider
 from booking.spider import SpiderEvent
-from datetime import date
+from datetime import date, timedelta
 from datetime import time
 from datetime import datetime
 import requests
@@ -26,10 +26,10 @@ class BaseUniwebSpider(BaseSpider):
         self._building_id = building_id
         self._building_key = building_key
 
-    def get_events(self) -> List[SpiderEvent]:
+    def get_events(self, request_date: datetime = datetime.now()) -> List[SpiderEvent]:
         payload = {'form-type': 'rooms',
                    'sede': self._building_id,
-                   'date': datetime.now().strftime("%d-%m-%Y"),
+                   'date': request_date.strftime("%d-%m-%Y"),
                    '_lang': 'it',
                    }
         response = requests.post(self._get_url(), payload)
@@ -42,6 +42,8 @@ class BaseUniwebSpider(BaseSpider):
                     name = event['name']
                     start = event['from']
                     end = event['to']
+                    if end == '24:00:00':
+                        end = '23:59:00'
                     classroom = event['NomeAula']
                     building = event['NomeSede']
                     logging.info(name + " " + start + "-" + end + " " + classroom + " " + building)
@@ -50,9 +52,3 @@ class BaseUniwebSpider(BaseSpider):
         else:
             logging.error(response.content)
         return result
-
-
-if __name__ == '__main__':
-    spider = BaseUniwebSpider("306", "")
-    events = spider.get_events()
-    print(events)

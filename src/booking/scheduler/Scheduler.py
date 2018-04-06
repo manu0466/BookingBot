@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from enum import Enum
 from threading import Thread, Event
 from typing import List
@@ -43,6 +43,7 @@ class Scheduler(Thread):
         self._settings_source = settings_source  # type: SettingsSource
         self._stop_event = Event()
         self._refresh_event = Event()
+        self._to_schedule_dates = []
         self.setName("BookingBot Scheduler")
         self.daemon = True
 
@@ -58,6 +59,9 @@ class Scheduler(Thread):
 
     def on_new_info(self) -> Observable:
         return self._info_subject
+
+    def set_to_schedule_dates(self, dates: List[datetime]):
+        self._to_schedule_dates = dates
 
     def run(self):
         while not self._stop_event.is_set():
@@ -87,13 +91,19 @@ class Scheduler(Thread):
                         # Adds the classroom to the dict
                         classrooms_dict[classroom.get_identifier()] = temp_classroom
 
-                    for event in spider.get_events():
-                        # Checks if the classroom provided from the spider is present in the dict.
-                        if event.get_classroom_key() not in classrooms_dict:
-                            logging.warning("No classroom found for: " + event.get_classroom_key())
-                        else:
-                            # Adds the event to the source.
-                            self._events_source.add_event(SpiderEventAdapter(event))
+                    if len(self._to_schedule_dates) == 0:
+                        self._to_schedule_dates.extend(self._get_default_dates())
+
+                    for date in self._to_schedule_dates:
+                        for event in spider.get_events(date):
+                            # Checks if the classroom provided from the spider is present in the dict.
+                            if event.get_classroom_key() not in classrooms_dict:
+                                logging.warning("No classroom found for: " + event.get_classroom_key())
+                            else:
+                                # Adds the event to the source.
+                                self._events_source.add_event(SpiderEventAdapter(event))
+
+                self._to_schedule_dates.clear()
 
                 # Save the last refresh
                 settings.update_refresh_date(date_time=datetime.now())
@@ -118,3 +128,7 @@ class Scheduler(Thread):
 
         self._status_subject.on_completed()
 
+    def _get_default_dates(self) -> List[datetime]:
+        today = datetime.now()
+        # return list(map(lambda i: today + timedelta(days=i), range(1, 8)))
+        return [today]

@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta
+
 from booking.spider.uniweb import BaseUniwebSpider
 from booking.spider.BuildingsProvider import builder as buildings_provider_builder
 from booking.spider import BuildingsProvider
@@ -26,5 +28,6 @@ class PaolottiSpider(BaseUniwebSpider):
 
 if __name__ == '__main__':
     spider = PaolottiSpider()
-    events = spider.get_events()
-    print(events)
+    for date in map(lambda i: datetime.today() + timedelta(days=i), range(1, 8)):
+        events = spider.get_events(date)
+        print(events)

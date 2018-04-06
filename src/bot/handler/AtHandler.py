@@ -11,10 +11,10 @@ from booking.usecase import EventsUseCase, ClassroomsUseCase
 
 
 class AtHandler(FilterableHandler):
-
     """
     Class that represents the At command.
     """
+
     @inject
     def __init__(self, events_uc: EventsUseCase, classrooms_uc: ClassroomsUseCase):
         # Regex to validate the time format
@@ -59,7 +59,7 @@ class AtHandler(FilterableHandler):
                 dispatcher.bot.send_message(update.message.chat_id, text=text, parse_mode=telegram.ParseMode.MARKDOWN)
             else:
                 dispatcher.bot.send_message(update.message.chat_id, text="The hour value should be >= 0 and < 24\n"
-                                               "The minute value should be >= 0 and < 60")
+                                                                         "The minute value should be >= 0 and < 60")
         else:
             dispatcher.bot.send_message(update.message.chat_id, text="Invalid format")
         return True

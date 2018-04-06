@@ -5,6 +5,7 @@ from typing import List
 import requests
 from lxml import html
 from .BuildingsProvider import BuildingsProvider
+from datetime import datetime
 
 from booking.spider.SpiderEvent import SpiderEvent
 
@@ -23,9 +24,10 @@ class BaseSpider(metaclass=ABCMeta):
         self._url = url
 
     @abc.abstractclassmethod
-    def get_events(self) -> List[SpiderEvent]:
+    def get_events(self, request_date: datetime = datetime.now()) -> List[SpiderEvent]:
         """
-        This method should return an array of SpiderEvent.
+        Gets the events scheduled in the provided date.
+        @:param request_date: The date of interest.
         :return: Returns a List[SpiderEvent] that contains the events obtained from the spider.
         """
         pass
