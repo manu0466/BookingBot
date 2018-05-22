@@ -130,5 +130,5 @@ class Scheduler(Thread):
 
     def _get_default_dates(self) -> List[datetime]:
         today = datetime.now()
-        # return list(map(lambda i: today + timedelta(days=i), range(1, 8)))
-        return [today]
+        return list(map(lambda i: today + timedelta(days=i), range(1, 8)))
+
